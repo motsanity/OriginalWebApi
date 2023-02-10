@@ -15,79 +15,124 @@ namespace webapi.Infrastructure.Database.Repository
     {
         private readonly AppDbContext _context;
         private readonly IMapper _mapper;
+        private readonly ILogger<OrderRepository> _logger;
 
-        public OrderRepository(AppDbContext context, IMapper mapper)
+        public OrderRepository(AppDbContext context, IMapper mapper, ILogger<OrderRepository> logger)
         {
             _context = context;
             _mapper = mapper;
+            _logger = logger;
         }
 
         public async Task<IEnumerable<OrderModel>> GetAllOrderByStatus(short status)
         {
+
+            _logger.LogInformation("GetAllOrderByStatus  executing..");
             var query = "SELECT * FROM Orders WHERE Status = @status";
 
             using (var connection = _context.Database.GetDbConnection())
             {
-                var orders = await connection.QueryAsync<OrderModel>(query, new { status });
-                var orderIds = orders.Select(o => o.OrderId).ToArray();
-                var cartItems = await _context.CartItems
-                    .Where(c => orderIds.Contains(c.OrderPrimaryId))
-                    .ToListAsync();
-
-
-                foreach (var order in orders)
+                try
                 {
-                    order.CartItems = cartItems
-                        .Where(c => c.OrderPrimaryId == order.OrderId)
-                        .ToList();
+                    var orders = await connection.QueryAsync<OrderModel>(query, new { status });
+
+                    _logger.LogInformation("Connection established..");
+
+                    var orderIds = orders.Select(o => o.OrderId).ToArray();
+                    var cartItems = await _context.CartItems
+                        .Where(c => orderIds.Contains(c.OrderPrimaryId))
+                        .ToListAsync();
+
+
+                    foreach (var order in orders)
+                    {
+                        order.CartItems = cartItems
+                            .Where(c => c.OrderPrimaryId == order.OrderId)
+                            .ToList();
+                    }
+                    _logger.LogInformation("GetAllOrderByStatus  success..");
+                    return orders.ToList();
+
                 }
-                return orders.ToList();
+
+                catch (Exception ex)
+                {
+                    _logger.LogError(ex, "Error in GetAllOrderByStatus");
+                    throw new Exception("Error in retrieving all Order by Status", ex);
+                }
+
             }
         }
 
         public async Task<IEnumerable<OrderModel>> GetAllOrders()
-        { 
+        {
+            _logger.LogInformation("GetAllOrder executing..");
             var query = "SELECT * FROM Orders";
 
             using (var connection = _context.Database.GetDbConnection())
             {
-                var orders = await connection.QueryAsync<OrderModel>(query);
-                var orderIds = orders.Select(o => o.OrderId).ToArray();
-                var cartItems = await _context.CartItems
-                    .Where(c => orderIds.Contains(c.OrderPrimaryId))
-                    .ToListAsync();
-
-                foreach (var order in orders)
+                try
                 {
-                    order.CartItems = cartItems
-                        .Where(c => c.OrderPrimaryId == order.OrderId)
-                        .ToList();
+                    _logger.LogInformation("Connection established..");
+                    var orders = await connection.QueryAsync<OrderModel>(query);
+                    var orderIds = orders.Select(o => o.OrderId).ToArray();
+                    var cartItems = await _context.CartItems
+                        .Where(c => orderIds.Contains(c.OrderPrimaryId))
+                        .ToListAsync();
+
+                    foreach (var order in orders)
+                    {
+                        order.CartItems = cartItems
+                            .Where(c => c.OrderPrimaryId == order.OrderId)
+                            .ToList();
+                    }
+                    _logger.LogInformation("GetAllOrder success..");
+                    return orders.ToList();
+
                 }
 
-                return orders.ToList();
+                catch (Exception ex)
+                {
+                    _logger.LogError(ex, "Error in GetAllOrder");
+                    throw new Exception("Error in retrieving all Order", ex);
+                }
+
             }
         }
         public async Task<OrderModel> GetOrderById(Guid orderId)
         {
+            _logger.LogInformation("GetOrderById executing..");
 
             var query = "SELECT * FROM Orders WHERE OrderId = @orderId";
             using (var connection = _context.Database.GetDbConnection())
             {
-                var orders = await connection.QueryAsync<OrderModel>(query, new {orderId});
-                var orderIds = orders.Select(o => o.OrderId).ToArray();
-                var cartItems = await _context.CartItems
-                    .Where(c => orderIds.Contains(c.OrderPrimaryId))
-                    .ToListAsync();
-
-
-                foreach (var order in orders)
+                try
                 {
-                    order.CartItems = cartItems
-                        .Where(c => c.OrderPrimaryId == order.OrderId)
-                        .ToList();
+                    _logger.LogInformation("Connection established..");
+                    var orders = await connection.QueryAsync<OrderModel>(query, new { orderId });
+                    var orderIds = orders.Select(o => o.OrderId).ToArray();
+                    var cartItems = await _context.CartItems
+                        .Where(c => orderIds.Contains(c.OrderPrimaryId))
+                        .ToListAsync();
+
+
+                    foreach (var order in orders)
+                    {
+                        order.CartItems = cartItems
+                            .Where(c => c.OrderPrimaryId == order.OrderId)
+                            .ToList();
+                    }
+
+                    _logger.LogInformation("GetOrderById success..");
+                    return orders.FirstOrDefault(o => o.OrderId == orderId);
+
+                }
+                catch (Exception ex)
+                {
+                    _logger.LogError(ex, "Error in GetOrderById");
+                    throw new Exception("Error in retrieving an Order", ex);
                 }
 
-                return orders.FirstOrDefault(o => o.OrderId == orderId);
             }
 
             //using (var connection = _context.Database.GetDbConnection())

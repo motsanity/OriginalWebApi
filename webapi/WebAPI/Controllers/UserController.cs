@@ -2,6 +2,7 @@
 using MediatR;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Serilog;
 using webapi.AppService.DTO.DTOUser;
 using webapi.CQRS.Command.CommandUser;
 using webapi.CQRS.Query.QueryUser;
@@ -22,6 +23,7 @@ namespace webapi.WebAPI.Controllers
         [HttpPost]
         public async Task<IActionResult> AddUser([FromBody] AddUserDTO dto)
         {
+            
             return await Handle<AddUserDTO, AddUserCommand, Guid>(dto); //error but answered
         }
 

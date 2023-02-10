@@ -13,17 +13,22 @@ namespace webapi.Infrastructure.Database.Repository
     {
         private readonly AppDbContext _context;
         private readonly IMapper _mapper;
+        private readonly ILogger<CartItemRepository> _logger;
 
-        public CartItemRepository(AppDbContext context, IMapper mapper)
+        public CartItemRepository(AppDbContext context, IMapper mapper, ILogger<CartItemRepository> logger)
         {
             _context = context;
             _mapper = mapper;
+            _logger = logger;
         }
 
 
 
         public async Task<Guid> AddCartItem(CartItemModel cartitem)
+
         {
+            _logger.LogInformation("AddCartItem executing..");
+
             var user = _context.Users.FirstOrDefault(r => r.UserId == cartitem.CustomerId);
             var userOrder = _context.Orders.FirstOrDefault(r => r.UserPrimaryID == cartitem.CustomerId && r.Status == 0);
             var entity = _mapper.Map<Entities.CartItem>(cartitem);
@@ -35,15 +40,19 @@ namespace webapi.Infrastructure.Database.Repository
 
             if (userOrder != null && userOrder.Status == 0)
             {
+                _logger.LogInformation("search match?", userOrder);
+
                 entity.OrderPrimaryId = userOrder.OrderId;
                 userOrder.CartItems.Add(entity);
+
+                _logger.LogInformation("Update status success..");
                 _context.Orders.Update(userOrder);
                 
 
             }
             else
             {
-                
+                _logger.LogInformation("Create new Order");
                 var order = new Order()
                 {
                     CustomerId = user.UserId,
@@ -52,6 +61,8 @@ namespace webapi.Infrastructure.Database.Repository
                     CartItems = new List<CartItem>() { entity }
 
                 };
+
+                _logger.LogInformation("Save Order success..");
                 _context.Orders.Add(order);
 
             }
@@ -75,8 +86,21 @@ namespace webapi.Infrastructure.Database.Repository
 
             using (var connection = _context.Database.GetDbConnection())
             {
-                var cartitems = await connection.QueryAsync<CartItemModel>(query);
-                return cartitems.ToList();
+                _logger.LogInformation("GetAllCartItem executing..");
+                try
+                {
+                    var cartitems = await connection.QueryAsync<CartItemModel>(query);
+                    _logger.LogInformation("Success..");
+                    return cartitems.ToList();
+                    
+
+                }
+
+                catch (Exception ex)
+                {
+                    _logger.LogError(ex, "Error in GetAllCartItem");
+                    throw new Exception("Error in retrieving CartItem", ex);
+                }
             }
 
             //var query = "SELECT * FROM CartItems";
@@ -90,25 +114,48 @@ namespace webapi.Infrastructure.Database.Repository
 
         public async Task UpdateCartItem(Guid CartItemId, string cartitemname) 
         {
-            var entity = await FindCartItemById(CartItemId);
-            entity.CartItemName = cartitemname;
-            await _context.SaveChangesAsync();
+            _logger.LogInformation("UpdateCartItem executing..");
+            try
+            {
+                
+                var entity = await FindCartItemById(CartItemId);
+                entity.CartItemName = cartitemname;
+                await _context.SaveChangesAsync();
+                _logger.LogInformation("Update success..");
+
+            }
+
+
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Error in Update CartItem");
+                throw new Exception("Error: cant find the desired user", ex);
+            }
 
         }
 
         public async Task DeleteCartItem(Guid CartItemId)
         {
-            var entity = await FindCartItemById(CartItemId);
-            _context.CartItems.Remove(entity);
-            await _context.SaveChangesAsync();
+            _logger.LogInformation("DeleteCartItem executing..");
+            try
+            {
+                var entity = await FindCartItemById(CartItemId);
+                _context.CartItems.Remove(entity);
+                await _context.SaveChangesAsync();
+                _logger.LogInformation("DeleteCartItem success..");
+            }
+
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Error in Delete CartItem");
+                throw new Exception("Error: cant find the desired user", ex);
+            }
+
 
         }
 
 
-
         //Private section
-
-
         private async Task<Entities.CartItem> FindCartItemById(Guid id) //added 4:55PM 1/24/2023
         {
             var found = await _context.CartItems.FindAsync(id);

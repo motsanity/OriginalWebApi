@@ -112,3 +112,14 @@ C:\Users\tjdbasalo\source\repos\webapi\webapi\obj\Debug\net6.0\webapi.pdb
 C:\Users\tjdbasalo\source\repos\webapi\webapi\obj\Debug\net6.0\webapi.genruntimeconfig.cache
 C:\Users\tjdbasalo\source\repos\webapi\webapi\obj\Debug\net6.0\ref\webapi.dll
 C:\Users\tjdbasalo\source\repos\webapi\webapi\bin\Debug\net6.0\FluentValidation.AspNetCore.dll
+C:\Users\tjdbasalo\source\repos\webapi\webapi\bin\Debug\net6.0\Autofac.dll
+C:\Users\tjdbasalo\source\repos\webapi\webapi\bin\Debug\net6.0\Autofac.Extensions.DependencyInjection.dll
+C:\Users\tjdbasalo\source\repos\webapi\webapi\bin\Debug\net6.0\Serilog.dll
+C:\Users\tjdbasalo\source\repos\webapi\webapi\bin\Debug\net6.0\Serilog.AspNetCore.dll
+C:\Users\tjdbasalo\source\repos\webapi\webapi\bin\Debug\net6.0\Serilog.Extensions.Hosting.dll
+C:\Users\tjdbasalo\source\repos\webapi\webapi\bin\Debug\net6.0\Serilog.Extensions.Logging.dll
+C:\Users\tjdbasalo\source\repos\webapi\webapi\bin\Debug\net6.0\Serilog.Formatting.Compact.dll
+C:\Users\tjdbasalo\source\repos\webapi\webapi\bin\Debug\net6.0\Serilog.Settings.Configuration.dll
+C:\Users\tjdbasalo\source\repos\webapi\webapi\bin\Debug\net6.0\Serilog.Sinks.Console.dll
+C:\Users\tjdbasalo\source\repos\webapi\webapi\bin\Debug\net6.0\Serilog.Sinks.Debug.dll
+C:\Users\tjdbasalo\source\repos\webapi\webapi\bin\Debug\net6.0\Serilog.Sinks.File.dll

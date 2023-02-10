@@ -3,7 +3,7 @@ using MediatR;
 using System.ComponentModel.DataAnnotations;
 using ValidationException = FluentValidation.ValidationException;
 
-namespace webapi.CQRS.Validation.CommandValidation.UserCommandValidator.CommandValidationBehavior
+namespace webapi.CQRS.Validation.CommandValidationBehavior
 {
     public class ValidationBehavior<TRequest, TResponse> : IPipelineBehavior<TRequest, TResponse>
     where TRequest : IRequest<TResponse>

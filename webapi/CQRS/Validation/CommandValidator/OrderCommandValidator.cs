@@ -1,8 +1,7 @@
 ﻿using FluentValidation;
-using webapi.CQRS.Command.CommandCartItem;
 using webapi.CQRS.Command.CommandOrder;
 
-namespace webapi.CQRS.Validation.CommandValidation.UserCommandValidator.CommandValidator
+namespace webapi.CQRS.Validation.CommandValidator
 {
     public class OrderCommandValidator
     {

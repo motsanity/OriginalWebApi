@@ -13,11 +13,16 @@ using Microsoft.AspNetCore.Mvc;
 using webapi.CQRS.Command.CommandUser;
 using MediatR.Extensions.FluentValidation.AspNetCore;
 using FluentValidation;
-using webapi.CQRS.Validation.CommandValidation.UserCommandValidator.CommandValidator;
+using webapi.CQRS.Validation.CommandValidator;
 using System.Reflection;
 using webapi.CQRS.Command.CommandCartItem;
 using webapi.CQRS.Command.CommandOrder;
 using webapi.CQRS.Command.CommandCheckout;
+using Autofac;
+using webapi.AppService.AutoFacModule;
+using Autofac.Extensions.DependencyInjection;
+using Serilog;
+using Autofac.Core;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -45,14 +50,14 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJw
     };
 });
 
-
-builder.Services.AddAutoMapper(typeof(_ForAppServiceAssemblyLoadOnly).Assembly);
-builder.Services.AddMediatR(typeof(_ForCQRSAssemblyLoadOnly).Assembly);
-builder.Services.AddScoped<IUserRepository, UserRepository>();
-builder.Services.AddScoped<ICartItemRepository, CartItemRepository>(); //added 1:50pm 1/24/2023
-builder.Services.AddScoped<IOrderRepository, OrderRepository>();
-builder.Services.AddScoped<ICheckoutRepository, CheckoutRepository>();
-builder.Services.AddDbContext<AppDbContext>(ServiceLifetime.Scoped);
+//edited on 2/10/2023
+//builder.Services.AddAutoMapper(typeof(_ForAppServiceAssemblyLoadOnly).Assembly);
+//builder.Services.AddMediatR(typeof(_ForCQRSAssemblyLoadOnly).Assembly);
+//builder.Services.AddScoped<IUserRepository, UserRepository>();
+//builder.Services.AddScoped<ICartItemRepository, CartItemRepository>(); //added 1:50pm 1/24/2023
+//builder.Services.AddScoped<IOrderRepository, OrderRepository>();
+//builder.Services.AddScoped<ICheckoutRepository, CheckoutRepository>();
+//builder.Services.AddDbContext<AppDbContext>(ServiceLifetime.Scoped);
 //added
 
 builder.Services.AddSwaggerGen(c =>
@@ -76,26 +81,41 @@ builder.Services.AddVersionedApiExplorer(options =>
     options.SubstituteApiVersionInUrl = true;
 });
 
+
+//edited on 2/10/2023
 //Validation
-builder.Services.AddTransient(typeof(IPipelineBehavior<,>), typeof(ValidationBehavior<,>));
+//builder.Services.AddTransient(typeof(IPipelineBehavior<,>), typeof(ValidationBehavior<,>));
 
-//UserValidation
-builder.Services.AddTransient<IValidator<AddUserCommand>, UserCommandValidator.AddUserCommandValidator>();
-builder.Services.AddTransient<IValidator<UpdateUserCommand>, UserCommandValidator.UpdateUserCommandValidator>();
+////UserValidation
+//builder.Services.AddTransient<IValidator<AddUserCommand>, UserCommandValidator.AddUserCommandValidator>();
+//builder.Services.AddTransient<IValidator<UpdateUserCommand>, UserCommandValidator.UpdateUserCommandValidator>();
 
-//CartItemValidation
-builder.Services.AddTransient<IValidator<AddCartItemCommand>, CartItemCommandValidator.AddCartItemCommandValidator>();
-builder.Services.AddTransient<IValidator<UpdateCartItemCommand>, CartItemCommandValidator.UpdateCartItemCommandValidator>();
-builder.Services.AddTransient<IValidator<DeleteCartItemCommand>, CartItemCommandValidator.DeleteCartItemCommandValidator>();
+////CartItemValidation
+//builder.Services.AddTransient<IValidator<AddCartItemCommand>, CartItemCommandValidator.AddCartItemCommandValidator>();
+//builder.Services.AddTransient<IValidator<UpdateCartItemCommand>, CartItemCommandValidator.UpdateCartItemCommandValidator>();
+//builder.Services.AddTransient<IValidator<DeleteCartItemCommand>, CartItemCommandValidator.DeleteCartItemCommandValidator>();
 
-//OrderValidation
-builder.Services.AddTransient<IValidator<DeleteOrderCommand>, OrderCommandValidator.DeleteOrderCommandValidator>();
+////OrderValidation
+//builder.Services.AddTransient<IValidator<DeleteOrderCommand>, OrderCommandValidator.DeleteOrderCommandValidator>();
 
-//CheckoutValidation
-builder.Services.AddTransient<IValidator<CheckoutOrderCommand>, CheckoutCommandValidator.CheckoutOrderCommandValidator>();
+////CheckoutValidation
+//builder.Services.AddTransient<IValidator<CheckoutOrderCommand>, CheckoutCommandValidator.CheckoutOrderCommandValidator>();
 
 
+//serliog
+var logger = new LoggerConfiguration()
+    .WriteTo.File("../logs/log.txt", rollingInterval: RollingInterval.Day)
+    .CreateLogger();
 
+builder.Logging.ClearProviders();
+builder.Logging.AddSerilog(logger);
+builder.Services.AddLogging(loggingBuilder => loggingBuilder.AddSerilog(dispose: true));
+
+//Autofac
+builder.Host.UseServiceProviderFactory(new AutofacServiceProviderFactory());
+builder.Host.ConfigureContainer<ContainerBuilder>( builder => builder.RegisterModule(new AutofacModule()));
+builder.Services.AddAutofac();
+ 
 
 
 
@@ -122,9 +142,6 @@ if (app.Environment.IsDevelopment())
         c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API v1");
         c.SwaggerEndpoint("/swagger/v2/swagger.json", "My API v2");
     });
-
-
-
 }
 app.UseMiddleware<BasicAuthMiddleware>();
 app.UseRouting();
@@ -135,7 +152,6 @@ app.UseEndpoints(endpoints =>
 app.UseAuthentication();
 app.UseAuthorization();
 app.UseHttpsRedirection();
-
 app.Run();
 
 

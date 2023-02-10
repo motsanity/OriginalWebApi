@@ -15,90 +15,85 @@ namespace webapi.Infrastructure.Database.Repository
     {
         private readonly AppDbContext _context;
         private readonly IMapper _mapper;
-
-        public UserRepository(AppDbContext context, IMapper mapper)
+        private readonly ILogger<UserRepository> _logger;
+        public UserRepository(AppDbContext context, IMapper mapper, ILogger<UserRepository> logger)
         {
             _context = context;
             _mapper = mapper;
+            _logger = logger;
+
         }
 
         public async Task<Guid> AddUser(UserModel user)
         {
-            var entity = _mapper.Map<Entities.User>(user);
-            _context.Users.Add(entity);
-            await _context.SaveChangesAsync();
 
-            return entity.UserId;
+            _logger.LogInformation("Adding User executing..");
+            try
+            {
+                var entity = _mapper.Map<Entities.User>(user);
+                _context.Users.Add(entity);
+                await _context.SaveChangesAsync();
+
+                _logger.LogInformation("User added successfully: {@user}", user);
+
+                return entity.UserId;
+
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Error adding user: {@user}", user);
+                return Guid.Empty;
+            }
+
         }
 
         public async Task<UserModel> GetUserById(Guid userId)
         {
+            _logger.LogInformation("Get User By Id executing..");
 
-            var query = "SELECT * FROM Users WHERE UserId = @userId";
-
-
-            using (var connection = _context.Database.GetDbConnection())
+            try
             {
-                var user = await connection.QuerySingleOrDefaultAsync<UserModel>(query, new { userId });
+                var query = "SELECT * FROM Users WHERE UserId = @userId";
 
-                return user;
+                using (var connection = _context.Database.GetDbConnection())
+                {
+                    _logger.LogInformation("Connection established..");
+
+                    var user = await connection.QuerySingleOrDefaultAsync<UserModel>(query, new { userId });
+
+                    _logger.LogInformation("Fetch successfully..");
+
+                    return user;
+
+                }
 
             }
 
-
-            //var query = "SELECT * FROM Users WHERE UserId = @userId";
-            //using (var connection = _context.Database.GetDbConnection())
-            //{
-            //    var users = await connection.QueryAsync<UserModel>(query, new { userId });
-            //    var userPrimaryId = users.Select(o => o.UserId);
-            //    var orders = await _context.Orders
-            //       .Where(c => userPrimaryId.Contains(c.CustomerId))
-            //       .ToListAsync();
-            //    var orderIds = orders.Select(o => o.OrderId).ToArray();
-
-
-
-
-
-
-            //    //var orders = await connection.QueryAsync<OrderModel>(query, new { userId });
-            //    //var orderIds = orders.Select(o => o.OrderId).ToArray();
-            //    //var cartItems = await _context.CartItems
-            //    //    .Where(c => orderIds.Contains(c.OrderPrimaryId))
-            //    //    .ToListAsync();
-
-
-            //    foreach (var user in users)
-            //    {
-            //        user.Orders = orders
-            //            .Where(c => c.UserPrimaryID == user.UserId)
-            //            .ToList();
-
-            //        foreach (var order in orders)
-            //        {
-
-            //            var cartItems = await _context.CartItems
-            //            .Where(c => orderIds.Contains(c.OrderPrimaryId))
-            //            .ToListAsync();
-
-            //            //order.CartItems = cartItems
-            //            //.Where(c => c.OrderPrimaryId == order.OrderId)
-            //            //.ToList();
-
-            //        }
-            //    }
-
-            //    return users.FirstOrDefault(o => o.UserId == userId);
-            //}
-
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Error in GetUserById");
+                throw new Exception("Error in retrieving user by Id", ex);
+            }
 
         }
 
         public async Task UpdateUser(Guid UserId, string username) //added 1:28PM 1/24/2023
         {
-            var entity = await FindUserById(UserId);
-            entity.UserName = username;
-            await _context.SaveChangesAsync();
+            _logger.LogInformation("Update User executing..");
+            try
+            {
+                var entity = await FindUserById(UserId);
+                entity.UserName = username;
+                _logger.LogInformation("Update User Sucess..");
+                await _context.SaveChangesAsync();
+
+            }
+
+            catch(Exception ex)
+            {
+                _logger.LogError(ex, "Error updating username");
+                throw new Exception("Error status", ex);
+            } 
 
         }
 
