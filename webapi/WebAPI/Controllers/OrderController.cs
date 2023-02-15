@@ -30,7 +30,7 @@ namespace webapi.WebAPI.Controllers
 
 
         [HttpGet("GetOrderBy")]
-        public async Task<IActionResult> GetUserById([FromQuery] GetOrderByIdQuery query)
+        public async Task<IActionResult> GetOrderById([FromQuery] GetOrderByIdQuery query)
         {
             return await Handle<OrderViewModel>(query);
         }
@@ -62,36 +62,11 @@ namespace webapi.WebAPI.Controllers
         }
 
 
-        [HttpGet("GetAllOrder")]
-        public async Task<IActionResult> GetAllOrders()
+        [HttpGet("GetAllOrderByStatic")]
+        public async Task<IActionResult> GetAllOrderByStatus()
         {
-            return await Handle<IEnumerable<OrderViewModel>>(new GetAllOrdersQuery());
+            return await Handle<IEnumerable<OrderViewModel>>( new GetAllOrderByStaticQuery());
         }
 
-
-
-        [HttpGet("GetOrderBy")]
-        public async Task<IActionResult> GetUserById([FromQuery] GetOrderByIdQuery query)
-        {
-            return await Handle<OrderViewModel>(query);
-        }
-
-
-        [HttpGet("GetAllOrderByStatus")]
-        public async Task<IActionResult> GetAllOrderByStatus([FromQuery] GetAllOrderByStatusQuery query)
-        {
-            return await Handle<IEnumerable<OrderViewModel>>(query);
-        }
-
-
-
-
-
-        [HttpDelete]
-        public async Task<IActionResult> DeleteOrder([FromQuery] DeleteOrderCommand dto)
-        {
-            //use UpdateCartItemDTO since they almost share the same method/properties
-            return await Handle<UpdateCartItemDTO, DeleteOrderCommand, object>(dto);
-        }
     }
 }

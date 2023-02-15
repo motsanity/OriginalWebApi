@@ -8,7 +8,8 @@ namespace webapi.CQRS.QueryHandlers
 {
     public class OrderQueryHandler : IRequestHandler<GetAllOrdersQuery, IEnumerable<OrderViewModel>>,
        IRequestHandler<GetOrderByIdQuery, OrderViewModel>,
-        IRequestHandler<GetAllOrderByStatusQuery, IEnumerable<OrderViewModel>> //from list
+        IRequestHandler<GetAllOrderByStatusQuery, IEnumerable<OrderViewModel>>,
+        IRequestHandler<GetAllOrderByStaticQuery, IEnumerable<OrderViewModel>>//from list
     {
         private readonly IMapper _mapper;
         private readonly IOrderRepository _orderRepository;
@@ -43,8 +44,11 @@ namespace webapi.CQRS.QueryHandlers
             return _mapper.Map<IEnumerable<OrderViewModel>>(status);
         }
 
+        public async Task<IEnumerable<OrderViewModel>> Handle(GetAllOrderByStaticQuery request, CancellationToken cancellationToken)
+        {
+            var orders = await _orderRepository.GetAllOrderByStatic();
 
-
-
+            return _mapper.Map<IEnumerable<OrderViewModel>>(orders);
+        }
     }
 }

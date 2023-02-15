@@ -99,6 +99,8 @@ namespace webapi.Infrastructure.Database.Repository
 
             }
         }
+
+
         public async Task<OrderModel> GetOrderById(Guid orderId)
         {
             _logger.LogInformation("GetOrderById executing..");
@@ -154,6 +156,42 @@ namespace webapi.Infrastructure.Database.Repository
 
             await _context.SaveChangesAsync();
 
+        }
+
+        public async Task<IEnumerable<OrderModel>> GetAllOrderByStatic()
+        {
+            _logger.LogInformation("GetAllOrder executing..");
+            var query = "SELECT * FROM Orders WHERE STATUS = 2";
+
+            using (var connection = _context.Database.GetDbConnection())
+            {
+                try
+                {
+                    _logger.LogInformation("Connection established..");
+                    var orders = await connection.QueryAsync<OrderModel>(query);
+                    var orderIds = orders.Select(o => o.OrderId).ToArray();
+                    var cartItems = await _context.CartItems
+                        .Where(c => orderIds.Contains(c.OrderPrimaryId))
+                        .ToListAsync();
+
+                    foreach (var order in orders)
+                    {
+                        order.CartItems = cartItems
+                            .Where(c => c.OrderPrimaryId == order.OrderId)
+                            .ToList();
+                    }
+                    _logger.LogInformation("GetAllOrder success..");
+                    return orders.ToList();
+
+                }
+
+                catch (Exception ex)
+                {
+                    _logger.LogError(ex, "Error in GetAllOrder");
+                    throw new Exception("Error in retrieving all Order", ex);
+                }
+
+            }
         }
 
 

@@ -5,18 +5,18 @@ namespace webapi.Domain.Models
 {
     public class CartItemModel //Models from Domain
     {
-        //public CartItemModel(string cartitemname, Guid customerid, Guid orderid)
-        //{
+        
+        public CartItemModel(string? cartItemName, Guid customerId, Guid orderPrimaryId) //added 2/14/2023 for AddCartItemCommand
+        {
+            CartItemName = cartItemName;
+            CustomerId = customerId;
+            OrderPrimaryId = orderPrimaryId;
+        } 
 
-        //    CartItemName = cartitemname;
-        //    CustomerId = customerid;
-        //    OrderId = orderid;
-        //}
-
-        public string CartItemName { get; set; }
-        public Guid CustomerId { get; set; }
-        public Guid OrderPrimaryId { get; set; }
-
+        //modified to private set
+        public string CartItemName { get; private set; }
+        public Guid CustomerId { get; private set; }
+        public Guid OrderPrimaryId { get; private set; }
 
 
 

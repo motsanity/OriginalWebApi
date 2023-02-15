@@ -46,8 +46,7 @@ namespace webapi.AppService.AutoFacModule
 
             //OrderValidation
             builder.RegisterType<OrderCommandValidator.DeleteOrderCommandValidator>().As<IValidator<DeleteOrderCommand>>().InstancePerDependency();
-            builder.RegisterType<CheckoutCommandValidator.CheckoutOrderCommandValidator>().As<IValidator<CheckoutOrderCommand>>().InstancePerDependency();
-
+            
             //CheckoutValidation
             builder.RegisterType<CheckoutCommandValidator.CheckoutOrderCommandValidator>().As<IValidator<CheckoutOrderCommand>>().InstancePerDependency();
 

@@ -20,12 +20,15 @@ namespace webapi.CQRS.CommandHandlers
 
         public async Task<Guid> Handle(CheckoutOrderCommand request, CancellationToken cancellationToken)
         {
-            var checkout = new CheckoutModel
-            {
-                CustomerId = request.CustomerId,
-                OrderPrimaryId = request.OrderPrimaryId,
-                Status = (Domain.Enumerations.Status)request.Status
-            };
+            //var checkout = new CheckoutModel
+            //{
+            //    CustomerId = request.CustomerId,
+            //    OrderPrimaryId = request.OrderPrimaryId,
+            //    Status = (Domain.Enumerations.Status)request.Status
+            //};
+
+            //replaced this from the top 2/14/2023
+            var checkout = _mapper.Map<CheckoutModel>(request);
             return await _checkoutRepository.CheckoutOrder(checkout);
         }
     }

@@ -6,6 +6,7 @@ namespace webapi.Domain.Contracts
     {
         Task<IEnumerable<OrderModel>> GetAllOrderByStatus(short status);
         Task<IEnumerable<OrderModel>> GetAllOrders();
+        Task<IEnumerable<OrderModel>> GetAllOrderByStatic();
         Task<OrderModel> GetOrderById(Guid orderId);
         Task DeleteOrder(Guid orderId);
         

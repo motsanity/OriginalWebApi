@@ -6,9 +6,18 @@ namespace webapi.Domain.Models
 {
     public class CheckoutModel
     {
-        public Guid CheckoutId { get; set; }
-        public Guid CustomerId { get; set; }
-        public Guid OrderPrimaryId { get; set; }
-        public Status Status { get; set; }
+
+        public CheckoutModel( Guid customerId, Guid orderPrimaryId, short status) //added 2/14/2023
+        {
+            CustomerId = customerId;
+            OrderPrimaryId = orderPrimaryId;
+            Status = (Status)status;
+        }
+
+        //public Guid CheckoutId { get; set; }
+        //modified to private and comment out the checkoutid 2/14/2023
+        public Guid CustomerId { get; private set; }
+        public Guid OrderPrimaryId { get; private set; }
+        public Status Status { get; private set; }
     }
 }

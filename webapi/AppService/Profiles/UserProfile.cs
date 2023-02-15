@@ -14,8 +14,8 @@ namespace webapi.AppService.Profiles
         {
             CreateMap<webapi.Domain.Models.UserModel, webapi.Infrastructure.Database.Entities.User>();
             CreateMap<AddUserDTO, AddUserCommand>();
-            CreateMap<AddUserCommand, UserModel>();
-                //.ConstructUsing((s) => new UserModel(s.UserName)); 5:30pm 1/27/2023
+            CreateMap<AddUserCommand, UserModel>()
+                .ConstructUsing((s) => new UserModel(s.UserName)); //5:30pm 1 / 27 / 2023 returned to normal 2/14/2023
 
             CreateMap<UserModel, UserViewModel>();
 

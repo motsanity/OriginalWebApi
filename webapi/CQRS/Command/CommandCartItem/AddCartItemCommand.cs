@@ -6,8 +6,7 @@ namespace webapi.CQRS.Command.CommandCartItem
     {
         public string? CartItemName { get; set; }
         public Guid CustomerId { get; set; }
-
-
+        public Guid OrderPrimaryId { get; internal set; } //added 2/14/2023
     }
 }
  

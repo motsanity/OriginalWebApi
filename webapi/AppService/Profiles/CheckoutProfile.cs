@@ -16,8 +16,8 @@ namespace webapi.AppService.Profiles
         {
             CreateMap<webapi.Domain.Models.CheckoutModel, webapi.Infrastructure.Database.Entities.Checkout>();
             CreateMap<CheckoutOrderDTO, CheckoutOrderCommand>();
-            CreateMap<CheckoutOrderCommand, CheckoutModel>();
-            //.ConstructUsing((s) => new CartItemModel(s.CartItemName, s.CustomerId, s.OrderId));
+            CreateMap<CheckoutOrderCommand, CheckoutModel>()
+                .ConstructUsing((s) => new CheckoutModel(s.CustomerId, s.OrderPrimaryId, s.Status)); //return constructor 2/14/2023
 
             CreateMap<CheckoutModel, CheckoutViewModel>();
             CreateMap<UpdateCartItemDTO, UpdateCartItemCommand>();

@@ -13,8 +13,8 @@ namespace webapi.AppService.Profiles
         {
             CreateMap<webapi.Domain.Models.CartItemModel, webapi.Infrastructure.Database.Entities.CartItem>();
             CreateMap<AddCartItemDTO, AddCartItemCommand>();
-            CreateMap<AddCartItemCommand, CartItemModel>();
-                //.ConstructUsing((s) => new CartItemModel(s.CartItemName, s.CustomerId, s.OrderId));
+            CreateMap<AddCartItemCommand, CartItemModel>()
+                .ConstructUsing((s) => new CartItemModel(s.CartItemName, s.CustomerId, s.OrderPrimaryId)); // return constructor 2/14/2023
 
             CreateMap<CartItemModel, CartItemViewModel>();
 

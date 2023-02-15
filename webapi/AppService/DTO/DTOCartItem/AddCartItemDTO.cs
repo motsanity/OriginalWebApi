@@ -6,6 +6,7 @@ namespace webapi.AppService.DTO.DTOCartItem //added 4:06pm 1/24/2023
     {
         [Required]
         public string? CartItemName { get; set; }
+        [Required]
         public Guid CustomerId { get; set; }
     }
 }

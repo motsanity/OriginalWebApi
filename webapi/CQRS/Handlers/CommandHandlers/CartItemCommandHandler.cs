@@ -22,15 +22,17 @@ namespace webapi.CQRS.CommandHandlers
 
         public async Task<Guid> Handle(AddCartItemCommand request, CancellationToken cancellationToken)
         {
-            var cartItem = new CartItemModel
-            {
-                CartItemName = request.CartItemName,
-                CustomerId = request.CustomerId
-            };
-            return await _cartItemRepository.AddCartItem(cartItem);
-            //var cartitem = _mapper.Map<CartItemModel>(request);
+            //var cartItem = new CartItemModel
+            //{
+            //    CartItemName = request.CartItemName,
+            //    CustomerId = request.CustomerId,
 
-            //return await _cartItemRepository.AddCartItem(cartitem);
+            //};
+            //return await _cartItemRepository.AddCartItem(cartItem);
+
+            //replaced this from the top 2/14/2023
+            var cartitem = _mapper.Map<CartItemModel>(request);
+            return await _cartItemRepository.AddCartItem(cartitem);
 
         }
         
