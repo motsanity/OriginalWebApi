@@ -58,7 +58,7 @@ namespace webapi.WebAPI.Controllers
 
         }
 
-        [HttpPost("login")]
+        [HttpPost("loginsr")]
         public async Task<ActionResult<Guid>> Login(AdminDTO request)
         {
             var admin = await _appDbContext.Admins.Where(r => r.AdminName == request.AdminName).FirstOrDefaultAsync();
