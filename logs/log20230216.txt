@@ -1,0 +1,888 @@
+2023-02-16 11:20:37.495 +08:00 [INF] User profile is available. Using 'C:\Users\tjdbasalo\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2023-02-16 11:20:38.093 +08:00 [INF] Now listening on: https://localhost:7203
+2023-02-16 11:20:38.093 +08:00 [INF] Now listening on: http://localhost:5203
+2023-02-16 11:20:38.098 +08:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-02-16 11:20:38.099 +08:00 [INF] Hosting environment: Development
+2023-02-16 11:20:38.099 +08:00 [INF] Content root path: C:\Users\tjdbasalo\source\repos\webapi\webapi\
+2023-02-16 11:20:39.227 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7203/swagger/index.html - -
+2023-02-16 11:20:40.063 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7203/_framework/aspnetcore-browser-refresh.js - -
+2023-02-16 11:20:40.072 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7203/_vs/browserLink - -
+2023-02-16 11:20:40.078 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7203/_framework/aspnetcore-browser-refresh.js - - - 200 11982 application/javascript;+charset=utf-8 13.3162ms
+2023-02-16 11:20:40.093 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7203/swagger/index.html - - - 200 - text/html;charset=utf-8 878.4472ms
+2023-02-16 11:20:40.142 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7203/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 69.5419ms
+2023-02-16 11:20:40.222 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7203/swagger/v1/swagger.json - -
+2023-02-16 11:20:40.638 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7203/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 415.6269ms
+2023-02-16 11:21:21.193 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7203/api/v1/OrderControllerV/GetAllOrder - -
+2023-02-16 11:21:22.332 +08:00 [INF] Executing endpoint 'webapi.WebAPI.Controllers.OrderControllerV1.GetAllOrders (webapi)'
+2023-02-16 11:21:22.352 +08:00 [INF] Route matched with {action = "GetAllOrders", controller = "OrderControllerV"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAllOrders() on controller webapi.WebAPI.Controllers.OrderControllerV1 (webapi).
+2023-02-16 11:21:23.027 +08:00 [INF] GetAllOrder executing..
+2023-02-16 11:21:23.938 +08:00 [INF] Connection established..
+2023-02-16 11:21:24.457 +08:00 [INF] Executed DbCommand (13ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [c].[CartItemId], [c].[CartItemName], [c].[CustomerId], [c].[OrderPrimaryId]
+FROM [CartItems] AS [c]
+WHERE [c].[OrderPrimaryId] IN ('a1d598f1-4fd1-474a-51a6-08db035c1ea6', '839734ad-7b83-48c9-81a0-08db03623e75', '52d01513-5d5b-4706-2182-08db04159695', '6b739960-0549-40b0-e421-08db04fe566e', 'a2403805-3bc7-4e6f-e422-08db04fe566e', 'cced369a-4b02-4548-109a-08db08103c55', '6a6422c3-7997-4998-3ab4-08db08a7965b', 'b16e3774-fae9-44c7-2b92-08db08bbb3da', '51f589d8-3a2c-43b9-19b2-08db09a1d382', 'f552bbd9-7f82-4ef0-4afa-08db09b0f5d4', 'b8040055-7102-42e5-f7ed-08db0b2a1207', '03285791-61f8-4953-f7ee-08db0b2a1207', '0765da17-231a-4997-abd8-08db0d6ccdf6', '73ed35fc-bafd-4c4c-abd9-08db0d6ccdf6', 'f6f422e6-81d5-4e40-30fd-08db0e5cb893', '12571598-b20e-4851-5333-08db0e5ef787')
+2023-02-16 11:21:24.584 +08:00 [ERR] Error in GetAllOrder
+System.InvalidCastException: Unable to cast object of type 'System.Collections.Generic.List`1[webapi.Infrastructure.Database.Entities.CartItem]' to type 'System.Collections.Generic.ICollection`1[webapi.Domain.Models.CartItemModel]'.
+   at webapi.Infrastructure.Database.Repository.OrderRepository.GetAllOrders() in C:\Users\tjdbasalo\source\repos\webapi\webapi\Infrastructure\Database\Repository\OrderRepository.cs:line 85
+2023-02-16 11:21:24.781 +08:00 [INF] Executing BadRequestObjectResult, writing value of type 'webapi.AppService.Common.QueryOrCommandResult`1[[System.Collections.Generic.IEnumerable`1[[webapi.CQRS.ViewModels.OrderViewModel, webapi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2023-02-16 11:21:24.798 +08:00 [INF] Executed action webapi.WebAPI.Controllers.OrderControllerV1.GetAllOrders (webapi) in 2440.97ms
+2023-02-16 11:21:24.799 +08:00 [INF] Executed endpoint 'webapi.WebAPI.Controllers.OrderControllerV1.GetAllOrders (webapi)'
+2023-02-16 11:21:24.814 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7203/api/v1/OrderControllerV/GetAllOrder - - - 400 - application/json;+charset=utf-8 3621.4817ms
+2023-02-16 11:26:44.613 +08:00 [INF] User profile is available. Using 'C:\Users\tjdbasalo\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2023-02-16 11:26:45.235 +08:00 [INF] Now listening on: https://localhost:7203
+2023-02-16 11:26:45.235 +08:00 [INF] Now listening on: http://localhost:5203
+2023-02-16 11:26:45.238 +08:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-02-16 11:26:45.238 +08:00 [INF] Hosting environment: Development
+2023-02-16 11:26:45.238 +08:00 [INF] Content root path: C:\Users\tjdbasalo\source\repos\webapi\webapi\
+2023-02-16 11:26:45.873 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7203/swagger/index.html - -
+2023-02-16 11:26:46.600 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7203/_vs/browserLink - -
+2023-02-16 11:26:46.600 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7203/_framework/aspnetcore-browser-refresh.js - -
+2023-02-16 11:26:46.614 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7203/_framework/aspnetcore-browser-refresh.js - - - 200 11982 application/javascript;+charset=utf-8 11.3090ms
+2023-02-16 11:26:46.619 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7203/swagger/index.html - - - 200 - text/html;charset=utf-8 751.1564ms
+2023-02-16 11:26:46.624 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7203/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 24.2325ms
+2023-02-16 11:26:46.706 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7203/swagger/v1/swagger.json - -
+2023-02-16 11:26:46.854 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7203/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 148.4652ms
+2023-02-16 11:26:51.415 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7203/api/v1/OrderControllerV/GetAllOrder - -
+2023-02-16 11:26:52.697 +08:00 [INF] Executing endpoint 'webapi.WebAPI.Controllers.OrderControllerV1.GetAllOrders (webapi)'
+2023-02-16 11:26:52.717 +08:00 [INF] Route matched with {action = "GetAllOrders", controller = "OrderControllerV"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAllOrders() on controller webapi.WebAPI.Controllers.OrderControllerV1 (webapi).
+2023-02-16 11:26:53.228 +08:00 [INF] GetAllOrder executing..
+2023-02-16 11:26:54.094 +08:00 [INF] Connection established..
+2023-02-16 11:26:54.607 +08:00 [INF] Executed DbCommand (5ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [c].[CartItemId], [c].[CartItemName], [c].[CustomerId], [c].[OrderPrimaryId]
+FROM [CartItems] AS [c]
+WHERE [c].[OrderPrimaryId] IN ('a1d598f1-4fd1-474a-51a6-08db035c1ea6', '839734ad-7b83-48c9-81a0-08db03623e75', '52d01513-5d5b-4706-2182-08db04159695', '6b739960-0549-40b0-e421-08db04fe566e', 'a2403805-3bc7-4e6f-e422-08db04fe566e', 'cced369a-4b02-4548-109a-08db08103c55', '6a6422c3-7997-4998-3ab4-08db08a7965b', 'b16e3774-fae9-44c7-2b92-08db08bbb3da', '51f589d8-3a2c-43b9-19b2-08db09a1d382', 'f552bbd9-7f82-4ef0-4afa-08db09b0f5d4', 'b8040055-7102-42e5-f7ed-08db0b2a1207', '03285791-61f8-4953-f7ee-08db0b2a1207', '0765da17-231a-4997-abd8-08db0d6ccdf6', '73ed35fc-bafd-4c4c-abd9-08db0d6ccdf6', 'f6f422e6-81d5-4e40-30fd-08db0e5cb893', '12571598-b20e-4851-5333-08db0e5ef787')
+2023-02-16 11:26:54.714 +08:00 [ERR] Error in GetAllOrder
+System.InvalidCastException: Unable to cast object of type 'System.Collections.Generic.List`1[webapi.Infrastructure.Database.Entities.CartItem]' to type 'System.Collections.Generic.ICollection`1[webapi.Domain.Models.CartItemModel]'.
+   at webapi.Infrastructure.Database.Repository.OrderRepository.GetAllOrders() in C:\Users\tjdbasalo\source\repos\webapi\webapi\Infrastructure\Database\Repository\OrderRepository.cs:line 85
+2023-02-16 11:26:54.897 +08:00 [INF] Executing BadRequestObjectResult, writing value of type 'webapi.AppService.Common.QueryOrCommandResult`1[[System.Collections.Generic.IEnumerable`1[[webapi.CQRS.ViewModels.OrderViewModel, webapi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2023-02-16 11:26:54.914 +08:00 [INF] Executed action webapi.WebAPI.Controllers.OrderControllerV1.GetAllOrders (webapi) in 2192.7144ms
+2023-02-16 11:26:54.916 +08:00 [INF] Executed endpoint 'webapi.WebAPI.Controllers.OrderControllerV1.GetAllOrders (webapi)'
+2023-02-16 11:26:54.929 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7203/api/v1/OrderControllerV/GetAllOrder - - - 400 - application/json;+charset=utf-8 3513.8010ms
+2023-02-16 11:31:40.972 +08:00 [INF] User profile is available. Using 'C:\Users\tjdbasalo\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2023-02-16 11:31:41.544 +08:00 [INF] Now listening on: https://localhost:7203
+2023-02-16 11:31:41.545 +08:00 [INF] Now listening on: http://localhost:5203
+2023-02-16 11:31:41.549 +08:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-02-16 11:31:41.551 +08:00 [INF] Hosting environment: Development
+2023-02-16 11:31:41.551 +08:00 [INF] Content root path: C:\Users\tjdbasalo\source\repos\webapi\webapi\
+2023-02-16 11:31:42.345 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7203/swagger/index.html - -
+2023-02-16 11:31:42.931 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7203/_vs/browserLink - -
+2023-02-16 11:31:42.931 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7203/_framework/aspnetcore-browser-refresh.js - -
+2023-02-16 11:31:42.942 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7203/_framework/aspnetcore-browser-refresh.js - - - 200 11982 application/javascript;+charset=utf-8 4.8333ms
+2023-02-16 11:31:42.950 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7203/swagger/index.html - - - 200 - text/html;charset=utf-8 613.9567ms
+2023-02-16 11:31:42.969 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7203/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 38.0655ms
+2023-02-16 11:31:43.044 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7203/swagger/v1/swagger.json - -
+2023-02-16 11:31:43.206 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7203/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 161.5405ms
+2023-02-16 11:31:49.365 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7203/api/v1/OrderControllerV/GetAllOrder - -
+2023-02-16 11:31:50.184 +08:00 [INF] Executing endpoint 'webapi.WebAPI.Controllers.OrderControllerV1.GetAllOrders (webapi)'
+2023-02-16 11:31:50.209 +08:00 [INF] Route matched with {action = "GetAllOrders", controller = "OrderControllerV"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAllOrders() on controller webapi.WebAPI.Controllers.OrderControllerV1 (webapi).
+2023-02-16 11:31:50.696 +08:00 [INF] GetAllOrder executing..
+2023-02-16 11:31:51.603 +08:00 [INF] Connection established..
+2023-02-16 11:31:52.265 +08:00 [INF] Executed DbCommand (5ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [c].[CartItemId], [c].[CartItemName], [c].[CustomerId], [c].[OrderPrimaryId]
+FROM [CartItems] AS [c]
+WHERE [c].[OrderPrimaryId] IN ('a1d598f1-4fd1-474a-51a6-08db035c1ea6', '839734ad-7b83-48c9-81a0-08db03623e75', '52d01513-5d5b-4706-2182-08db04159695', '6b739960-0549-40b0-e421-08db04fe566e', 'a2403805-3bc7-4e6f-e422-08db04fe566e', 'cced369a-4b02-4548-109a-08db08103c55', '6a6422c3-7997-4998-3ab4-08db08a7965b', 'b16e3774-fae9-44c7-2b92-08db08bbb3da', '51f589d8-3a2c-43b9-19b2-08db09a1d382', 'f552bbd9-7f82-4ef0-4afa-08db09b0f5d4', 'b8040055-7102-42e5-f7ed-08db0b2a1207', '03285791-61f8-4953-f7ee-08db0b2a1207', '0765da17-231a-4997-abd8-08db0d6ccdf6', '73ed35fc-bafd-4c4c-abd9-08db0d6ccdf6', 'f6f422e6-81d5-4e40-30fd-08db0e5cb893', '12571598-b20e-4851-5333-08db0e5ef787')
+2023-02-16 11:31:52.358 +08:00 [INF] GetAllOrder success..
+2023-02-16 11:31:52.516 +08:00 [INF] Executing BadRequestObjectResult, writing value of type 'webapi.AppService.Common.QueryOrCommandResult`1[[System.Collections.Generic.IEnumerable`1[[webapi.CQRS.ViewModels.OrderViewModel, webapi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2023-02-16 11:31:52.539 +08:00 [INF] Executed action webapi.WebAPI.Controllers.OrderControllerV1.GetAllOrders (webapi) in 2325.0199ms
+2023-02-16 11:31:52.540 +08:00 [INF] Executed endpoint 'webapi.WebAPI.Controllers.OrderControllerV1.GetAllOrders (webapi)'
+2023-02-16 11:31:52.554 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7203/api/v1/OrderControllerV/GetAllOrder - - - 400 - application/json;+charset=utf-8 3189.2967ms
+2023-02-16 11:33:45.510 +08:00 [INF] User profile is available. Using 'C:\Users\tjdbasalo\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2023-02-16 11:33:45.957 +08:00 [INF] Now listening on: https://localhost:7203
+2023-02-16 11:33:45.957 +08:00 [INF] Now listening on: http://localhost:5203
+2023-02-16 11:33:45.960 +08:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-02-16 11:33:45.960 +08:00 [INF] Hosting environment: Development
+2023-02-16 11:33:45.960 +08:00 [INF] Content root path: C:\Users\tjdbasalo\source\repos\webapi\webapi\
+2023-02-16 11:33:46.656 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7203/swagger/index.html - -
+2023-02-16 11:33:47.250 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7203/_framework/aspnetcore-browser-refresh.js - -
+2023-02-16 11:33:47.258 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7203/_vs/browserLink - -
+2023-02-16 11:33:47.271 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7203/_framework/aspnetcore-browser-refresh.js - - - 200 11982 application/javascript;+charset=utf-8 14.1096ms
+2023-02-16 11:33:47.283 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7203/swagger/index.html - - - 200 - text/html;charset=utf-8 633.4332ms
+2023-02-16 11:33:47.305 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7203/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 46.8023ms
+2023-02-16 11:33:47.388 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7203/swagger/v1/swagger.json - -
+2023-02-16 11:33:47.564 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7203/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 175.7959ms
+2023-02-16 11:33:51.294 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7203/api/v1/OrderControllerV/GetAllOrder - -
+2023-02-16 11:33:52.349 +08:00 [INF] Executing endpoint 'webapi.WebAPI.Controllers.OrderControllerV1.GetAllOrders (webapi)'
+2023-02-16 11:33:52.375 +08:00 [INF] Route matched with {action = "GetAllOrders", controller = "OrderControllerV"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAllOrders() on controller webapi.WebAPI.Controllers.OrderControllerV1 (webapi).
+2023-02-16 11:33:52.972 +08:00 [INF] GetAllOrder executing..
+2023-02-16 11:33:54.018 +08:00 [INF] Connection established..
+2023-02-16 11:33:54.665 +08:00 [INF] Executed DbCommand (6ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [c].[CartItemId], [c].[CartItemName], [c].[CustomerId], [c].[OrderPrimaryId]
+FROM [CartItems] AS [c]
+WHERE [c].[OrderPrimaryId] IN ('a1d598f1-4fd1-474a-51a6-08db035c1ea6', '839734ad-7b83-48c9-81a0-08db03623e75', '52d01513-5d5b-4706-2182-08db04159695', '6b739960-0549-40b0-e421-08db04fe566e', 'a2403805-3bc7-4e6f-e422-08db04fe566e', 'cced369a-4b02-4548-109a-08db08103c55', '6a6422c3-7997-4998-3ab4-08db08a7965b', 'b16e3774-fae9-44c7-2b92-08db08bbb3da', '51f589d8-3a2c-43b9-19b2-08db09a1d382', 'f552bbd9-7f82-4ef0-4afa-08db09b0f5d4', 'b8040055-7102-42e5-f7ed-08db0b2a1207', '03285791-61f8-4953-f7ee-08db0b2a1207', '0765da17-231a-4997-abd8-08db0d6ccdf6', '73ed35fc-bafd-4c4c-abd9-08db0d6ccdf6', 'f6f422e6-81d5-4e40-30fd-08db0e5cb893', '12571598-b20e-4851-5333-08db0e5ef787')
+2023-02-16 11:33:54.758 +08:00 [INF] GetAllOrder success..
+2023-02-16 11:33:54.896 +08:00 [INF] Executing BadRequestObjectResult, writing value of type 'webapi.AppService.Common.QueryOrCommandResult`1[[System.Collections.Generic.IEnumerable`1[[webapi.CQRS.ViewModels.OrderViewModel, webapi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2023-02-16 11:33:54.917 +08:00 [INF] Executed action webapi.WebAPI.Controllers.OrderControllerV1.GetAllOrders (webapi) in 2537.2801ms
+2023-02-16 11:33:54.918 +08:00 [INF] Executed endpoint 'webapi.WebAPI.Controllers.OrderControllerV1.GetAllOrders (webapi)'
+2023-02-16 11:33:54.933 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7203/api/v1/OrderControllerV/GetAllOrder - - - 400 - application/json;+charset=utf-8 3639.0647ms
+2023-02-16 11:35:19.558 +08:00 [INF] User profile is available. Using 'C:\Users\tjdbasalo\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2023-02-16 11:35:20.000 +08:00 [INF] Now listening on: https://localhost:7203
+2023-02-16 11:35:20.000 +08:00 [INF] Now listening on: http://localhost:5203
+2023-02-16 11:35:20.003 +08:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-02-16 11:35:20.003 +08:00 [INF] Hosting environment: Development
+2023-02-16 11:35:20.003 +08:00 [INF] Content root path: C:\Users\tjdbasalo\source\repos\webapi\webapi\
+2023-02-16 11:35:20.637 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7203/swagger/index.html - -
+2023-02-16 11:35:21.227 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7203/_framework/aspnetcore-browser-refresh.js - -
+2023-02-16 11:35:21.227 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7203/_vs/browserLink - -
+2023-02-16 11:35:21.239 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7203/_framework/aspnetcore-browser-refresh.js - - - 200 11982 application/javascript;+charset=utf-8 9.0829ms
+2023-02-16 11:35:21.260 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7203/swagger/index.html - - - 200 - text/html;charset=utf-8 629.7838ms
+2023-02-16 11:35:21.264 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7203/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 37.1080ms
+2023-02-16 11:35:21.336 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7203/swagger/v1/swagger.json - -
+2023-02-16 11:35:21.491 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7203/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 154.8672ms
+2023-02-16 11:35:29.424 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7203/api/v1/OrderControllerV/GetAllOrder - -
+2023-02-16 11:35:30.307 +08:00 [INF] Executing endpoint 'webapi.WebAPI.Controllers.OrderControllerV1.GetAllOrders (webapi)'
+2023-02-16 11:35:30.338 +08:00 [INF] Route matched with {action = "GetAllOrders", controller = "OrderControllerV"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAllOrders() on controller webapi.WebAPI.Controllers.OrderControllerV1 (webapi).
+2023-02-16 11:35:30.874 +08:00 [INF] GetAllOrder executing..
+2023-02-16 11:35:31.726 +08:00 [INF] Connection established..
+2023-02-16 11:35:32.266 +08:00 [INF] Executed DbCommand (11ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [c].[CartItemId], [c].[CartItemName], [c].[CustomerId], [c].[OrderPrimaryId]
+FROM [CartItems] AS [c]
+WHERE [c].[OrderPrimaryId] IN ('a1d598f1-4fd1-474a-51a6-08db035c1ea6', '839734ad-7b83-48c9-81a0-08db03623e75', '52d01513-5d5b-4706-2182-08db04159695', '6b739960-0549-40b0-e421-08db04fe566e', 'a2403805-3bc7-4e6f-e422-08db04fe566e', 'cced369a-4b02-4548-109a-08db08103c55', '6a6422c3-7997-4998-3ab4-08db08a7965b', 'b16e3774-fae9-44c7-2b92-08db08bbb3da', '51f589d8-3a2c-43b9-19b2-08db09a1d382', 'f552bbd9-7f82-4ef0-4afa-08db09b0f5d4', 'b8040055-7102-42e5-f7ed-08db0b2a1207', '03285791-61f8-4953-f7ee-08db0b2a1207', '0765da17-231a-4997-abd8-08db0d6ccdf6', '73ed35fc-bafd-4c4c-abd9-08db0d6ccdf6', 'f6f422e6-81d5-4e40-30fd-08db0e5cb893', '12571598-b20e-4851-5333-08db0e5ef787')
+2023-02-16 11:35:32.344 +08:00 [INF] GetAllOrder success..
+2023-02-16 11:35:32.480 +08:00 [INF] Executing BadRequestObjectResult, writing value of type 'webapi.AppService.Common.QueryOrCommandResult`1[[System.Collections.Generic.IEnumerable`1[[webapi.CQRS.ViewModels.OrderViewModel, webapi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2023-02-16 11:35:32.502 +08:00 [INF] Executed action webapi.WebAPI.Controllers.OrderControllerV1.GetAllOrders (webapi) in 2158.37ms
+2023-02-16 11:35:32.503 +08:00 [INF] Executed endpoint 'webapi.WebAPI.Controllers.OrderControllerV1.GetAllOrders (webapi)'
+2023-02-16 11:35:32.517 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7203/api/v1/OrderControllerV/GetAllOrder - - - 400 - application/json;+charset=utf-8 3092.7109ms
+2023-02-16 11:36:26.160 +08:00 [INF] User profile is available. Using 'C:\Users\tjdbasalo\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2023-02-16 11:36:26.615 +08:00 [INF] Now listening on: https://localhost:7203
+2023-02-16 11:36:26.615 +08:00 [INF] Now listening on: http://localhost:5203
+2023-02-16 11:36:26.618 +08:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-02-16 11:36:26.618 +08:00 [INF] Hosting environment: Development
+2023-02-16 11:36:26.618 +08:00 [INF] Content root path: C:\Users\tjdbasalo\source\repos\webapi\webapi\
+2023-02-16 11:36:27.413 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7203/swagger/index.html - -
+2023-02-16 11:36:28.005 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7203/_vs/browserLink - -
+2023-02-16 11:36:28.005 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7203/_framework/aspnetcore-browser-refresh.js - -
+2023-02-16 11:36:28.020 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7203/_framework/aspnetcore-browser-refresh.js - - - 200 11982 application/javascript;+charset=utf-8 6.5342ms
+2023-02-16 11:36:28.034 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7203/swagger/index.html - - - 200 - text/html;charset=utf-8 625.9827ms
+2023-02-16 11:36:28.042 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7203/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 37.2527ms
+2023-02-16 11:36:28.118 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7203/swagger/v1/swagger.json - -
+2023-02-16 11:36:28.267 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7203/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 149.5589ms
+2023-02-16 11:36:34.752 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7203/api/v1/OrderControllerV/GetAllOrder - -
+2023-02-16 11:36:35.495 +08:00 [INF] Executing endpoint 'webapi.WebAPI.Controllers.OrderControllerV1.GetAllOrders (webapi)'
+2023-02-16 11:36:35.516 +08:00 [INF] Route matched with {action = "GetAllOrders", controller = "OrderControllerV"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAllOrders() on controller webapi.WebAPI.Controllers.OrderControllerV1 (webapi).
+2023-02-16 11:36:36.034 +08:00 [INF] GetAllOrder executing..
+2023-02-16 11:36:36.900 +08:00 [INF] Connection established..
+2023-02-16 11:36:37.440 +08:00 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [c].[CartItemId], [c].[CartItemName], [c].[CustomerId], [c].[OrderPrimaryId]
+FROM [CartItems] AS [c]
+WHERE [c].[OrderPrimaryId] IN ('a1d598f1-4fd1-474a-51a6-08db035c1ea6', '839734ad-7b83-48c9-81a0-08db03623e75', '52d01513-5d5b-4706-2182-08db04159695', '6b739960-0549-40b0-e421-08db04fe566e', 'a2403805-3bc7-4e6f-e422-08db04fe566e', 'cced369a-4b02-4548-109a-08db08103c55', '6a6422c3-7997-4998-3ab4-08db08a7965b', 'b16e3774-fae9-44c7-2b92-08db08bbb3da', '51f589d8-3a2c-43b9-19b2-08db09a1d382', 'f552bbd9-7f82-4ef0-4afa-08db09b0f5d4', 'b8040055-7102-42e5-f7ed-08db0b2a1207', '03285791-61f8-4953-f7ee-08db0b2a1207', '0765da17-231a-4997-abd8-08db0d6ccdf6', '73ed35fc-bafd-4c4c-abd9-08db0d6ccdf6', 'f6f422e6-81d5-4e40-30fd-08db0e5cb893', '12571598-b20e-4851-5333-08db0e5ef787')
+2023-02-16 11:36:37.518 +08:00 [INF] GetAllOrder success..
+2023-02-16 11:36:37.550 +08:00 [INF] Executing OkObjectResult, writing value of type 'webapi.AppService.Common.QueryOrCommandResult`1[[System.Collections.Generic.IEnumerable`1[[webapi.CQRS.ViewModels.OrderViewModel, webapi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2023-02-16 11:36:37.579 +08:00 [INF] Executed action webapi.WebAPI.Controllers.OrderControllerV1.GetAllOrders (webapi) in 2056.9246ms
+2023-02-16 11:36:37.580 +08:00 [INF] Executed endpoint 'webapi.WebAPI.Controllers.OrderControllerV1.GetAllOrders (webapi)'
+2023-02-16 11:36:37.595 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7203/api/v1/OrderControllerV/GetAllOrder - - - 200 - application/json;+charset=utf-8 2842.4433ms
+2023-02-16 11:38:01.883 +08:00 [INF] User profile is available. Using 'C:\Users\tjdbasalo\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2023-02-16 11:38:02.288 +08:00 [INF] Now listening on: https://localhost:7203
+2023-02-16 11:38:02.288 +08:00 [INF] Now listening on: http://localhost:5203
+2023-02-16 11:38:02.292 +08:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-02-16 11:38:02.292 +08:00 [INF] Hosting environment: Development
+2023-02-16 11:38:02.292 +08:00 [INF] Content root path: C:\Users\tjdbasalo\source\repos\webapi\webapi\
+2023-02-16 11:38:02.984 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7203/swagger/index.html - -
+2023-02-16 11:38:03.613 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7203/_framework/aspnetcore-browser-refresh.js - -
+2023-02-16 11:38:03.613 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7203/_vs/browserLink - -
+2023-02-16 11:38:03.621 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7203/_framework/aspnetcore-browser-refresh.js - - - 200 11982 application/javascript;+charset=utf-8 7.2955ms
+2023-02-16 11:38:03.668 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7203/swagger/index.html - - - 200 - text/html;charset=utf-8 691.8988ms
+2023-02-16 11:38:03.669 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7203/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 56.3215ms
+2023-02-16 11:38:03.723 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7203/swagger/v1/swagger.json - -
+2023-02-16 11:38:03.871 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7203/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 147.7960ms
+2023-02-16 11:38:11.868 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7203/api/v1/OrderControllerV/GetAllOrder - -
+2023-02-16 11:38:12.621 +08:00 [INF] Executing endpoint 'webapi.WebAPI.Controllers.OrderControllerV1.GetAllOrders (webapi)'
+2023-02-16 11:38:12.645 +08:00 [INF] Route matched with {action = "GetAllOrders", controller = "OrderControllerV"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAllOrders() on controller webapi.WebAPI.Controllers.OrderControllerV1 (webapi).
+2023-02-16 11:38:13.104 +08:00 [INF] GetAllOrder executing..
+2023-02-16 11:38:13.943 +08:00 [INF] Connection established..
+2023-02-16 11:38:14.453 +08:00 [ERR] Failed executing DbCommand (11ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [c].[CartItemId], [c].[CartItemName], [c].[CustomerId], [c].[OrderId], [c].[OrderPrimaryId]
+FROM [CartItems] AS [c]
+WHERE [c].[OrderPrimaryId] IN ('a1d598f1-4fd1-474a-51a6-08db035c1ea6', '839734ad-7b83-48c9-81a0-08db03623e75', '52d01513-5d5b-4706-2182-08db04159695', '6b739960-0549-40b0-e421-08db04fe566e', 'a2403805-3bc7-4e6f-e422-08db04fe566e', 'cced369a-4b02-4548-109a-08db08103c55', '6a6422c3-7997-4998-3ab4-08db08a7965b', 'b16e3774-fae9-44c7-2b92-08db08bbb3da', '51f589d8-3a2c-43b9-19b2-08db09a1d382', 'f552bbd9-7f82-4ef0-4afa-08db09b0f5d4', 'b8040055-7102-42e5-f7ed-08db0b2a1207', '03285791-61f8-4953-f7ee-08db0b2a1207', '0765da17-231a-4997-abd8-08db0d6ccdf6', '73ed35fc-bafd-4c4c-abd9-08db0d6ccdf6', 'f6f422e6-81d5-4e40-30fd-08db0e5cb893', '12571598-b20e-4851-5333-08db0e5ef787')
+2023-02-16 11:38:14.511 +08:00 [ERR] An exception occurred while iterating over the results of a query for context type 'webapi.Infrastructure.Database.Contexts.AppDbContext'.
+Microsoft.Data.SqlClient.SqlException (0x80131904): Invalid column name 'OrderId'.
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__208_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.Tasks.Task.<>c.<.cctor>b__272_0(Object obj)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+ClientConnectionId:e204f74a-2cb9-4277-a632-24890b7b2164
+Error Number:207,State:1,Class:16
+Microsoft.Data.SqlClient.SqlException (0x80131904): Invalid column name 'OrderId'.
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__208_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.Tasks.Task.<>c.<.cctor>b__272_0(Object obj)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+ClientConnectionId:e204f74a-2cb9-4277-a632-24890b7b2164
+Error Number:207,State:1,Class:16
+2023-02-16 11:38:14.564 +08:00 [ERR] Error in GetAllOrder
+Microsoft.Data.SqlClient.SqlException (0x80131904): Invalid column name 'OrderId'.
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__208_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.Tasks.Task.<>c.<.cctor>b__272_0(Object obj)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+   at Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions.ToListAsync[TSource](IQueryable`1 source, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions.ToListAsync[TSource](IQueryable`1 source, CancellationToken cancellationToken)
+   at webapi.Infrastructure.Database.Repository.OrderRepository.GetAllOrders() in C:\Users\tjdbasalo\source\repos\webapi\webapi\Infrastructure\Database\Repository\OrderRepository.cs:line 79
+ClientConnectionId:e204f74a-2cb9-4277-a632-24890b7b2164
+Error Number:207,State:1,Class:16
+2023-02-16 11:38:14.723 +08:00 [INF] Executing BadRequestObjectResult, writing value of type 'webapi.AppService.Common.QueryOrCommandResult`1[[System.Collections.Generic.IEnumerable`1[[webapi.CQRS.ViewModels.OrderViewModel, webapi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2023-02-16 11:38:14.740 +08:00 [INF] Executed action webapi.WebAPI.Controllers.OrderControllerV1.GetAllOrders (webapi) in 2090.6271ms
+2023-02-16 11:38:14.741 +08:00 [INF] Executed endpoint 'webapi.WebAPI.Controllers.OrderControllerV1.GetAllOrders (webapi)'
+2023-02-16 11:38:14.759 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7203/api/v1/OrderControllerV/GetAllOrder - - - 400 - application/json;+charset=utf-8 2891.5022ms
+2023-02-16 11:38:33.331 +08:00 [INF] User profile is available. Using 'C:\Users\tjdbasalo\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2023-02-16 11:38:33.735 +08:00 [INF] Now listening on: https://localhost:7203
+2023-02-16 11:38:33.735 +08:00 [INF] Now listening on: http://localhost:5203
+2023-02-16 11:38:33.738 +08:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-02-16 11:38:33.739 +08:00 [INF] Hosting environment: Development
+2023-02-16 11:38:33.739 +08:00 [INF] Content root path: C:\Users\tjdbasalo\source\repos\webapi\webapi\
+2023-02-16 11:38:34.698 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7203/swagger/index.html - -
+2023-02-16 11:38:35.293 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7203/_vs/browserLink - -
+2023-02-16 11:38:35.293 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7203/_framework/aspnetcore-browser-refresh.js - -
+2023-02-16 11:38:35.302 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7203/_framework/aspnetcore-browser-refresh.js - - - 200 11982 application/javascript;+charset=utf-8 5.6342ms
+2023-02-16 11:38:35.309 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7203/swagger/index.html - - - 200 - text/html;charset=utf-8 617.2899ms
+2023-02-16 11:38:35.384 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7203/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 91.5612ms
+2023-02-16 11:38:35.445 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7203/swagger/v1/swagger.json - -
+2023-02-16 11:38:35.613 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7203/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 168.7482ms
+2023-02-16 11:38:41.847 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7203/api/v1/OrderControllerV/GetAllOrder - -
+2023-02-16 11:38:42.675 +08:00 [INF] Executing endpoint 'webapi.WebAPI.Controllers.OrderControllerV1.GetAllOrders (webapi)'
+2023-02-16 11:38:42.696 +08:00 [INF] Route matched with {action = "GetAllOrders", controller = "OrderControllerV"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAllOrders() on controller webapi.WebAPI.Controllers.OrderControllerV1 (webapi).
+2023-02-16 11:38:43.136 +08:00 [INF] GetAllOrder executing..
+2023-02-16 11:38:43.976 +08:00 [INF] Connection established..
+2023-02-16 11:38:44.485 +08:00 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [c].[CartItemId], [c].[CartItemName], [c].[CustomerId], [c].[OrderPrimaryId]
+FROM [CartItems] AS [c]
+WHERE [c].[OrderPrimaryId] IN ('a1d598f1-4fd1-474a-51a6-08db035c1ea6', '839734ad-7b83-48c9-81a0-08db03623e75', '52d01513-5d5b-4706-2182-08db04159695', '6b739960-0549-40b0-e421-08db04fe566e', 'a2403805-3bc7-4e6f-e422-08db04fe566e', 'cced369a-4b02-4548-109a-08db08103c55', '6a6422c3-7997-4998-3ab4-08db08a7965b', 'b16e3774-fae9-44c7-2b92-08db08bbb3da', '51f589d8-3a2c-43b9-19b2-08db09a1d382', 'f552bbd9-7f82-4ef0-4afa-08db09b0f5d4', 'b8040055-7102-42e5-f7ed-08db0b2a1207', '03285791-61f8-4953-f7ee-08db0b2a1207', '0765da17-231a-4997-abd8-08db0d6ccdf6', '73ed35fc-bafd-4c4c-abd9-08db0d6ccdf6', 'f6f422e6-81d5-4e40-30fd-08db0e5cb893', '12571598-b20e-4851-5333-08db0e5ef787')
+2023-02-16 11:38:44.558 +08:00 [INF] GetAllOrder success..
+2023-02-16 11:38:44.590 +08:00 [INF] Executing OkObjectResult, writing value of type 'webapi.AppService.Common.QueryOrCommandResult`1[[System.Collections.Generic.IEnumerable`1[[webapi.CQRS.ViewModels.OrderViewModel, webapi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2023-02-16 11:38:44.619 +08:00 [INF] Executed action webapi.WebAPI.Controllers.OrderControllerV1.GetAllOrders (webapi) in 1917.3753ms
+2023-02-16 11:38:44.620 +08:00 [INF] Executed endpoint 'webapi.WebAPI.Controllers.OrderControllerV1.GetAllOrders (webapi)'
+2023-02-16 11:38:44.633 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7203/api/v1/OrderControllerV/GetAllOrder - - - 200 - application/json;+charset=utf-8 2786.8691ms
+2023-02-16 11:39:45.015 +08:00 [INF] User profile is available. Using 'C:\Users\tjdbasalo\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2023-02-16 11:39:45.419 +08:00 [INF] Now listening on: https://localhost:7203
+2023-02-16 11:39:45.419 +08:00 [INF] Now listening on: http://localhost:5203
+2023-02-16 11:39:45.423 +08:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-02-16 11:39:45.423 +08:00 [INF] Hosting environment: Development
+2023-02-16 11:39:45.424 +08:00 [INF] Content root path: C:\Users\tjdbasalo\source\repos\webapi\webapi\
+2023-02-16 11:39:46.264 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7203/swagger/index.html - -
+2023-02-16 11:39:46.876 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7203/_vs/browserLink - -
+2023-02-16 11:39:46.876 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7203/_framework/aspnetcore-browser-refresh.js - -
+2023-02-16 11:39:46.890 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7203/_framework/aspnetcore-browser-refresh.js - - - 200 11982 application/javascript;+charset=utf-8 12.7975ms
+2023-02-16 11:39:46.910 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7203/swagger/index.html - - - 200 - text/html;charset=utf-8 654.8157ms
+2023-02-16 11:39:46.914 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7203/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 37.8464ms
+2023-02-16 11:39:46.987 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7203/swagger/v1/swagger.json - -
+2023-02-16 11:39:47.151 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7203/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 163.5594ms
+2023-02-16 11:39:52.967 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7203/api/v1/OrderControllerV/GetAllOrder - -
+2023-02-16 11:39:53.750 +08:00 [INF] Executing endpoint 'webapi.WebAPI.Controllers.OrderControllerV1.GetAllOrders (webapi)'
+2023-02-16 11:39:53.769 +08:00 [INF] Route matched with {action = "GetAllOrders", controller = "OrderControllerV"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAllOrders() on controller webapi.WebAPI.Controllers.OrderControllerV1 (webapi).
+2023-02-16 11:39:54.287 +08:00 [INF] GetAllOrder executing..
+2023-02-16 11:39:55.143 +08:00 [INF] Connection established..
+2023-02-16 11:39:55.665 +08:00 [INF] Executed DbCommand (5ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [c].[CartItemId], [c].[CartItemName], [c].[CustomerId], [c].[OrderPrimaryId]
+FROM [CartItems] AS [c]
+WHERE [c].[OrderPrimaryId] IN ('a1d598f1-4fd1-474a-51a6-08db035c1ea6', '839734ad-7b83-48c9-81a0-08db03623e75', '52d01513-5d5b-4706-2182-08db04159695', '6b739960-0549-40b0-e421-08db04fe566e', 'a2403805-3bc7-4e6f-e422-08db04fe566e', 'cced369a-4b02-4548-109a-08db08103c55', '6a6422c3-7997-4998-3ab4-08db08a7965b', 'b16e3774-fae9-44c7-2b92-08db08bbb3da', '51f589d8-3a2c-43b9-19b2-08db09a1d382', 'f552bbd9-7f82-4ef0-4afa-08db09b0f5d4', 'b8040055-7102-42e5-f7ed-08db0b2a1207', '03285791-61f8-4953-f7ee-08db0b2a1207', '0765da17-231a-4997-abd8-08db0d6ccdf6', '73ed35fc-bafd-4c4c-abd9-08db0d6ccdf6', 'f6f422e6-81d5-4e40-30fd-08db0e5cb893', '12571598-b20e-4851-5333-08db0e5ef787')
+2023-02-16 11:39:55.742 +08:00 [INF] GetAllOrder success..
+2023-02-16 11:39:55.874 +08:00 [INF] Executing BadRequestObjectResult, writing value of type 'webapi.AppService.Common.QueryOrCommandResult`1[[System.Collections.Generic.IEnumerable`1[[webapi.CQRS.ViewModels.OrderViewModel, webapi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2023-02-16 11:39:55.898 +08:00 [INF] Executed action webapi.WebAPI.Controllers.OrderControllerV1.GetAllOrders (webapi) in 2124.5503ms
+2023-02-16 11:39:55.900 +08:00 [INF] Executed endpoint 'webapi.WebAPI.Controllers.OrderControllerV1.GetAllOrders (webapi)'
+2023-02-16 11:39:55.914 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7203/api/v1/OrderControllerV/GetAllOrder - - - 400 - application/json;+charset=utf-8 2947.2762ms
+2023-02-16 11:42:06.867 +08:00 [INF] User profile is available. Using 'C:\Users\tjdbasalo\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2023-02-16 11:42:07.254 +08:00 [INF] Now listening on: https://localhost:7203
+2023-02-16 11:42:07.254 +08:00 [INF] Now listening on: http://localhost:5203
+2023-02-16 11:42:07.257 +08:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-02-16 11:42:07.258 +08:00 [INF] Hosting environment: Development
+2023-02-16 11:42:07.258 +08:00 [INF] Content root path: C:\Users\tjdbasalo\source\repos\webapi\webapi\
+2023-02-16 11:42:08.080 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7203/swagger/index.html - -
+2023-02-16 11:42:08.666 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7203/_framework/aspnetcore-browser-refresh.js - -
+2023-02-16 11:42:08.666 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7203/_vs/browserLink - -
+2023-02-16 11:42:08.673 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7203/_framework/aspnetcore-browser-refresh.js - - - 200 11982 application/javascript;+charset=utf-8 5.9290ms
+2023-02-16 11:42:08.682 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7203/swagger/index.html - - - 200 - text/html;charset=utf-8 607.8339ms
+2023-02-16 11:42:08.754 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7203/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 88.0542ms
+2023-02-16 11:42:08.807 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7203/swagger/v1/swagger.json - -
+2023-02-16 11:42:08.983 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7203/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 176.7774ms
+2023-02-16 11:42:17.755 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7203/api/v1/OrderControllerV/GetAllOrder - -
+2023-02-16 11:42:18.647 +08:00 [INF] Executing endpoint 'webapi.WebAPI.Controllers.OrderControllerV1.GetAllOrders (webapi)'
+2023-02-16 11:42:18.669 +08:00 [INF] Route matched with {action = "GetAllOrders", controller = "OrderControllerV"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAllOrders() on controller webapi.WebAPI.Controllers.OrderControllerV1 (webapi).
+2023-02-16 11:42:19.110 +08:00 [INF] GetAllOrder executing..
+2023-02-16 11:42:19.946 +08:00 [INF] Connection established..
+2023-02-16 11:42:20.447 +08:00 [INF] Executed DbCommand (5ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [c].[CartItemId], [c].[CartItemName], [c].[CustomerId], [c].[OrderPrimaryId]
+FROM [CartItems] AS [c]
+WHERE [c].[OrderPrimaryId] IN ('a1d598f1-4fd1-474a-51a6-08db035c1ea6', '839734ad-7b83-48c9-81a0-08db03623e75', '52d01513-5d5b-4706-2182-08db04159695', '6b739960-0549-40b0-e421-08db04fe566e', 'a2403805-3bc7-4e6f-e422-08db04fe566e', 'cced369a-4b02-4548-109a-08db08103c55', '6a6422c3-7997-4998-3ab4-08db08a7965b', 'b16e3774-fae9-44c7-2b92-08db08bbb3da', '51f589d8-3a2c-43b9-19b2-08db09a1d382', 'f552bbd9-7f82-4ef0-4afa-08db09b0f5d4', 'b8040055-7102-42e5-f7ed-08db0b2a1207', '03285791-61f8-4953-f7ee-08db0b2a1207', '0765da17-231a-4997-abd8-08db0d6ccdf6', '73ed35fc-bafd-4c4c-abd9-08db0d6ccdf6', 'f6f422e6-81d5-4e40-30fd-08db0e5cb893', '12571598-b20e-4851-5333-08db0e5ef787')
+2023-02-16 11:42:20.528 +08:00 [INF] GetAllOrder success..
+2023-02-16 11:42:20.665 +08:00 [INF] Executing BadRequestObjectResult, writing value of type 'webapi.AppService.Common.QueryOrCommandResult`1[[System.Collections.Generic.IEnumerable`1[[webapi.CQRS.ViewModels.OrderViewModel, webapi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2023-02-16 11:42:20.687 +08:00 [INF] Executed action webapi.WebAPI.Controllers.OrderControllerV1.GetAllOrders (webapi) in 2011.8202ms
+2023-02-16 11:42:20.688 +08:00 [INF] Executed endpoint 'webapi.WebAPI.Controllers.OrderControllerV1.GetAllOrders (webapi)'
+2023-02-16 11:42:20.703 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7203/api/v1/OrderControllerV/GetAllOrder - - - 400 - application/json;+charset=utf-8 2947.5761ms
+2023-02-16 11:56:37.662 +08:00 [INF] User profile is available. Using 'C:\Users\tjdbasalo\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2023-02-16 11:56:38.173 +08:00 [INF] Now listening on: https://localhost:7203
+2023-02-16 11:56:38.173 +08:00 [INF] Now listening on: http://localhost:5203
+2023-02-16 11:56:38.176 +08:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-02-16 11:56:38.177 +08:00 [INF] Hosting environment: Development
+2023-02-16 11:56:38.177 +08:00 [INF] Content root path: C:\Users\tjdbasalo\source\repos\webapi\webapi\
+2023-02-16 11:56:38.908 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7203/swagger/index.html - -
+2023-02-16 11:56:39.493 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7203/_vs/browserLink - -
+2023-02-16 11:56:39.493 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7203/_framework/aspnetcore-browser-refresh.js - -
+2023-02-16 11:56:39.505 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7203/_framework/aspnetcore-browser-refresh.js - - - 200 11982 application/javascript;+charset=utf-8 4.8900ms
+2023-02-16 11:56:39.524 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7203/swagger/index.html - - - 200 - text/html;charset=utf-8 621.2060ms
+2023-02-16 11:56:39.529 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7203/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 35.5765ms
+2023-02-16 11:56:39.597 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7203/swagger/v1/swagger.json - -
+2023-02-16 11:56:39.771 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7203/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 173.8983ms
+2023-02-16 11:56:54.743 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7203/api/v1/OrderControllerV/GetAllOrder - -
+2023-02-16 11:56:55.599 +08:00 [INF] Executing endpoint 'webapi.WebAPI.Controllers.OrderControllerV1.GetAllOrders (webapi)'
+2023-02-16 11:56:55.621 +08:00 [INF] Route matched with {action = "GetAllOrders", controller = "OrderControllerV"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAllOrders() on controller webapi.WebAPI.Controllers.OrderControllerV1 (webapi).
+2023-02-16 11:56:56.122 +08:00 [INF] GetAllOrder executing..
+2023-02-16 11:56:57.136 +08:00 [INF] Connection established..
+2023-02-16 11:56:57.711 +08:00 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [c].[CartItemId], [c].[CartItemName], [c].[CustomerId], [c].[OrderPrimaryId]
+FROM [CartItems] AS [c]
+WHERE [c].[OrderPrimaryId] IN ('a1d598f1-4fd1-474a-51a6-08db035c1ea6', '839734ad-7b83-48c9-81a0-08db03623e75', '52d01513-5d5b-4706-2182-08db04159695', '6b739960-0549-40b0-e421-08db04fe566e', 'a2403805-3bc7-4e6f-e422-08db04fe566e', 'cced369a-4b02-4548-109a-08db08103c55', '6a6422c3-7997-4998-3ab4-08db08a7965b', 'b16e3774-fae9-44c7-2b92-08db08bbb3da', '51f589d8-3a2c-43b9-19b2-08db09a1d382', 'f552bbd9-7f82-4ef0-4afa-08db09b0f5d4', 'b8040055-7102-42e5-f7ed-08db0b2a1207', '03285791-61f8-4953-f7ee-08db0b2a1207', '0765da17-231a-4997-abd8-08db0d6ccdf6', '73ed35fc-bafd-4c4c-abd9-08db0d6ccdf6', 'f6f422e6-81d5-4e40-30fd-08db0e5cb893', '12571598-b20e-4851-5333-08db0e5ef787')
+2023-02-16 11:56:57.797 +08:00 [INF] GetAllOrder success..
+2023-02-16 11:56:57.946 +08:00 [INF] Executing BadRequestObjectResult, writing value of type 'webapi.AppService.Common.QueryOrCommandResult`1[[System.Collections.Generic.IEnumerable`1[[webapi.CQRS.ViewModels.OrderViewModel, webapi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2023-02-16 11:56:57.969 +08:00 [INF] Executed action webapi.WebAPI.Controllers.OrderControllerV1.GetAllOrders (webapi) in 2342.7613ms
+2023-02-16 11:56:57.970 +08:00 [INF] Executed endpoint 'webapi.WebAPI.Controllers.OrderControllerV1.GetAllOrders (webapi)'
+2023-02-16 11:56:57.985 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7203/api/v1/OrderControllerV/GetAllOrder - - - 400 - application/json;+charset=utf-8 3241.6835ms
+2023-02-16 11:58:34.272 +08:00 [INF] User profile is available. Using 'C:\Users\tjdbasalo\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2023-02-16 11:58:34.715 +08:00 [INF] Now listening on: https://localhost:7203
+2023-02-16 11:58:34.715 +08:00 [INF] Now listening on: http://localhost:5203
+2023-02-16 11:58:34.718 +08:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-02-16 11:58:34.719 +08:00 [INF] Hosting environment: Development
+2023-02-16 11:58:34.719 +08:00 [INF] Content root path: C:\Users\tjdbasalo\source\repos\webapi\webapi\
+2023-02-16 11:58:35.434 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7203/swagger/index.html - -
+2023-02-16 11:58:36.083 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7203/_framework/aspnetcore-browser-refresh.js - -
+2023-02-16 11:58:36.085 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7203/_vs/browserLink - -
+2023-02-16 11:58:36.090 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7203/_framework/aspnetcore-browser-refresh.js - - - 200 11982 application/javascript;+charset=utf-8 6.2200ms
+2023-02-16 11:58:36.114 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7203/swagger/index.html - - - 200 - text/html;charset=utf-8 688.1586ms
+2023-02-16 11:58:36.118 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7203/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 32.6814ms
+2023-02-16 11:58:36.191 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7203/swagger/v1/swagger.json - -
+2023-02-16 11:58:36.351 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7203/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 159.6215ms
+2023-02-16 11:58:40.954 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7203/api/v1/OrderControllerV/GetAllOrder - -
+2023-02-16 11:58:41.803 +08:00 [INF] Executing endpoint 'webapi.WebAPI.Controllers.OrderControllerV1.GetAllOrders (webapi)'
+2023-02-16 11:58:41.827 +08:00 [INF] Route matched with {action = "GetAllOrders", controller = "OrderControllerV"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAllOrders() on controller webapi.WebAPI.Controllers.OrderControllerV1 (webapi).
+2023-02-16 11:58:42.290 +08:00 [INF] GetAllOrder executing..
+2023-02-16 11:58:43.126 +08:00 [INF] Connection established..
+2023-02-16 11:58:43.644 +08:00 [INF] Executed DbCommand (5ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [c].[CartItemId], [c].[CartItemName], [c].[CustomerId], [c].[OrderPrimaryId]
+FROM [CartItems] AS [c]
+WHERE [c].[OrderPrimaryId] IN ('a1d598f1-4fd1-474a-51a6-08db035c1ea6', '839734ad-7b83-48c9-81a0-08db03623e75', '52d01513-5d5b-4706-2182-08db04159695', '6b739960-0549-40b0-e421-08db04fe566e', 'a2403805-3bc7-4e6f-e422-08db04fe566e', 'cced369a-4b02-4548-109a-08db08103c55', '6a6422c3-7997-4998-3ab4-08db08a7965b', 'b16e3774-fae9-44c7-2b92-08db08bbb3da', '51f589d8-3a2c-43b9-19b2-08db09a1d382', 'f552bbd9-7f82-4ef0-4afa-08db09b0f5d4', 'b8040055-7102-42e5-f7ed-08db0b2a1207', '03285791-61f8-4953-f7ee-08db0b2a1207', '0765da17-231a-4997-abd8-08db0d6ccdf6', '73ed35fc-bafd-4c4c-abd9-08db0d6ccdf6', 'f6f422e6-81d5-4e40-30fd-08db0e5cb893', '12571598-b20e-4851-5333-08db0e5ef787')
+2023-02-16 11:58:43.757 +08:00 [ERR] Error in GetAllOrder
+System.InvalidCastException: Unable to cast object of type 'System.Collections.Generic.List`1[webapi.Infrastructure.Database.Entities.CartItem]' to type 'System.Collections.Generic.ICollection`1[webapi.CQRS.ViewModels.CartItemViewModel]'.
+   at webapi.Infrastructure.Database.Repository.OrderRepository.GetAllOrders() in C:\Users\tjdbasalo\source\repos\webapi\webapi\Infrastructure\Database\Repository\OrderRepository.cs:line 85
+2023-02-16 11:58:43.922 +08:00 [INF] Executing BadRequestObjectResult, writing value of type 'webapi.AppService.Common.QueryOrCommandResult`1[[System.Collections.Generic.IEnumerable`1[[webapi.CQRS.ViewModels.OrderViewModel, webapi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2023-02-16 11:58:43.940 +08:00 [INF] Executed action webapi.WebAPI.Controllers.OrderControllerV1.GetAllOrders (webapi) in 2107.9764ms
+2023-02-16 11:58:43.942 +08:00 [INF] Executed endpoint 'webapi.WebAPI.Controllers.OrderControllerV1.GetAllOrders (webapi)'
+2023-02-16 11:58:43.957 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7203/api/v1/OrderControllerV/GetAllOrder - - - 400 - application/json;+charset=utf-8 3003.0430ms
+2023-02-16 12:02:13.917 +08:00 [INF] User profile is available. Using 'C:\Users\tjdbasalo\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2023-02-16 12:02:14.447 +08:00 [INF] Now listening on: https://localhost:7203
+2023-02-16 12:02:14.448 +08:00 [INF] Now listening on: http://localhost:5203
+2023-02-16 12:02:14.460 +08:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-02-16 12:02:14.460 +08:00 [INF] Hosting environment: Development
+2023-02-16 12:02:14.461 +08:00 [INF] Content root path: C:\Users\tjdbasalo\source\repos\webapi\webapi\
+2023-02-16 12:02:15.124 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7203/swagger/index.html - -
+2023-02-16 12:02:15.693 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7203/_vs/browserLink - -
+2023-02-16 12:02:15.693 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7203/_framework/aspnetcore-browser-refresh.js - -
+2023-02-16 12:02:15.705 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7203/_framework/aspnetcore-browser-refresh.js - - - 200 11982 application/javascript;+charset=utf-8 6.6223ms
+2023-02-16 12:02:15.712 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7203/swagger/index.html - - - 200 - text/html;charset=utf-8 597.0265ms
+2023-02-16 12:02:15.725 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7203/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 31.8251ms
+2023-02-16 12:02:15.806 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7203/swagger/v1/swagger.json - -
+2023-02-16 12:02:15.991 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7203/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 184.9309ms
+2023-02-16 12:02:21.171 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7203/api/v1/OrderControllerV/GetAllOrder - -
+2023-02-16 12:02:21.991 +08:00 [INF] Executing endpoint 'webapi.WebAPI.Controllers.OrderControllerV1.GetAllOrders (webapi)'
+2023-02-16 12:02:22.011 +08:00 [INF] Route matched with {action = "GetAllOrders", controller = "OrderControllerV"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAllOrders() on controller webapi.WebAPI.Controllers.OrderControllerV1 (webapi).
+2023-02-16 12:02:22.465 +08:00 [INF] GetAllOrder executing..
+2023-02-16 12:02:23.364 +08:00 [INF] Connection established..
+2023-02-16 12:02:23.890 +08:00 [INF] Executed DbCommand (6ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [c].[CartItemId], [c].[CartItemName], [c].[CustomerId], [c].[OrderPrimaryId]
+FROM [CartItems] AS [c]
+WHERE [c].[OrderPrimaryId] IN ('a1d598f1-4fd1-474a-51a6-08db035c1ea6', '839734ad-7b83-48c9-81a0-08db03623e75', '52d01513-5d5b-4706-2182-08db04159695', '6b739960-0549-40b0-e421-08db04fe566e', 'a2403805-3bc7-4e6f-e422-08db04fe566e', 'cced369a-4b02-4548-109a-08db08103c55', '6a6422c3-7997-4998-3ab4-08db08a7965b', 'b16e3774-fae9-44c7-2b92-08db08bbb3da', '51f589d8-3a2c-43b9-19b2-08db09a1d382', 'f552bbd9-7f82-4ef0-4afa-08db09b0f5d4', 'b8040055-7102-42e5-f7ed-08db0b2a1207', '03285791-61f8-4953-f7ee-08db0b2a1207', '0765da17-231a-4997-abd8-08db0d6ccdf6', '73ed35fc-bafd-4c4c-abd9-08db0d6ccdf6', 'f6f422e6-81d5-4e40-30fd-08db0e5cb893', '12571598-b20e-4851-5333-08db0e5ef787')
+2023-02-16 12:02:24.017 +08:00 [ERR] Error in GetAllOrder
+System.InvalidCastException: Unable to cast object of type 'System.Collections.Generic.List`1[webapi.Infrastructure.Database.Entities.CartItem]' to type 'System.Collections.Generic.ICollection`1[webapi.CQRS.ViewModels.CartItemViewModel]'.
+   at webapi.Infrastructure.Database.Repository.OrderRepository.GetAllOrders() in C:\Users\tjdbasalo\source\repos\webapi\webapi\Infrastructure\Database\Repository\OrderRepository.cs:line 85
+2023-02-16 12:02:24.159 +08:00 [INF] Executing BadRequestObjectResult, writing value of type 'webapi.AppService.Common.QueryOrCommandResult`1[[System.Collections.Generic.IEnumerable`1[[webapi.CQRS.ViewModels.OrderViewModel, webapi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2023-02-16 12:02:24.178 +08:00 [INF] Executed action webapi.WebAPI.Controllers.OrderControllerV1.GetAllOrders (webapi) in 2161.6411ms
+2023-02-16 12:02:24.179 +08:00 [INF] Executed endpoint 'webapi.WebAPI.Controllers.OrderControllerV1.GetAllOrders (webapi)'
+2023-02-16 12:02:24.195 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7203/api/v1/OrderControllerV/GetAllOrder - - - 400 - application/json;+charset=utf-8 3024.2709ms
+2023-02-16 12:03:26.983 +08:00 [INF] User profile is available. Using 'C:\Users\tjdbasalo\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2023-02-16 12:03:27.393 +08:00 [INF] Now listening on: https://localhost:7203
+2023-02-16 12:03:27.393 +08:00 [INF] Now listening on: http://localhost:5203
+2023-02-16 12:03:27.395 +08:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-02-16 12:03:27.396 +08:00 [INF] Hosting environment: Development
+2023-02-16 12:03:27.396 +08:00 [INF] Content root path: C:\Users\tjdbasalo\source\repos\webapi\webapi\
+2023-02-16 12:03:28.313 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7203/swagger/index.html - -
+2023-02-16 12:03:29.114 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7203/_vs/browserLink - -
+2023-02-16 12:03:29.114 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7203/_framework/aspnetcore-browser-refresh.js - -
+2023-02-16 12:03:29.127 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7203/_framework/aspnetcore-browser-refresh.js - - - 200 11982 application/javascript;+charset=utf-8 10.9517ms
+2023-02-16 12:03:29.144 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7203/swagger/index.html - - - 200 - text/html;charset=utf-8 841.8956ms
+2023-02-16 12:03:29.147 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7203/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 32.6902ms
+2023-02-16 12:03:29.208 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7203/swagger/v1/swagger.json - -
+2023-02-16 12:03:29.396 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7203/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 187.9509ms
+2023-02-16 12:03:33.005 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7203/api/v1/OrderControllerV/GetAllOrder - -
+2023-02-16 12:03:33.793 +08:00 [INF] Executing endpoint 'webapi.WebAPI.Controllers.OrderControllerV1.GetAllOrders (webapi)'
+2023-02-16 12:03:33.813 +08:00 [INF] Route matched with {action = "GetAllOrders", controller = "OrderControllerV"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAllOrders() on controller webapi.WebAPI.Controllers.OrderControllerV1 (webapi).
+2023-02-16 12:03:34.259 +08:00 [INF] GetAllOrder executing..
+2023-02-16 12:03:35.110 +08:00 [INF] Connection established..
+2023-02-16 12:03:35.628 +08:00 [INF] Executed DbCommand (5ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [c].[CartItemId], [c].[CartItemName], [c].[CustomerId], [c].[OrderPrimaryId]
+FROM [CartItems] AS [c]
+WHERE [c].[OrderPrimaryId] IN ('a1d598f1-4fd1-474a-51a6-08db035c1ea6', '839734ad-7b83-48c9-81a0-08db03623e75', '52d01513-5d5b-4706-2182-08db04159695', '6b739960-0549-40b0-e421-08db04fe566e', 'a2403805-3bc7-4e6f-e422-08db04fe566e', 'cced369a-4b02-4548-109a-08db08103c55', '6a6422c3-7997-4998-3ab4-08db08a7965b', 'b16e3774-fae9-44c7-2b92-08db08bbb3da', '51f589d8-3a2c-43b9-19b2-08db09a1d382', 'f552bbd9-7f82-4ef0-4afa-08db09b0f5d4', 'b8040055-7102-42e5-f7ed-08db0b2a1207', '03285791-61f8-4953-f7ee-08db0b2a1207', '0765da17-231a-4997-abd8-08db0d6ccdf6', '73ed35fc-bafd-4c4c-abd9-08db0d6ccdf6', 'f6f422e6-81d5-4e40-30fd-08db0e5cb893', '12571598-b20e-4851-5333-08db0e5ef787')
+2023-02-16 12:03:35.703 +08:00 [INF] GetAllOrder success..
+2023-02-16 12:03:35.848 +08:00 [INF] Executing BadRequestObjectResult, writing value of type 'webapi.AppService.Common.QueryOrCommandResult`1[[System.Collections.Generic.IEnumerable`1[[webapi.CQRS.ViewModels.OrderViewModel, webapi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2023-02-16 12:03:35.868 +08:00 [INF] Executed action webapi.WebAPI.Controllers.OrderControllerV1.GetAllOrders (webapi) in 2049.8574ms
+2023-02-16 12:03:35.869 +08:00 [INF] Executed endpoint 'webapi.WebAPI.Controllers.OrderControllerV1.GetAllOrders (webapi)'
+2023-02-16 12:03:35.884 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7203/api/v1/OrderControllerV/GetAllOrder - - - 400 - application/json;+charset=utf-8 2878.3700ms
+2023-02-16 12:04:15.460 +08:00 [INF] User profile is available. Using 'C:\Users\tjdbasalo\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2023-02-16 12:04:15.866 +08:00 [INF] Now listening on: https://localhost:7203
+2023-02-16 12:04:15.866 +08:00 [INF] Now listening on: http://localhost:5203
+2023-02-16 12:04:15.869 +08:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-02-16 12:04:15.870 +08:00 [INF] Hosting environment: Development
+2023-02-16 12:04:15.870 +08:00 [INF] Content root path: C:\Users\tjdbasalo\source\repos\webapi\webapi\
+2023-02-16 12:04:16.818 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7203/swagger/index.html - -
+2023-02-16 12:04:17.479 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7203/_framework/aspnetcore-browser-refresh.js - -
+2023-02-16 12:04:17.479 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7203/_vs/browserLink - -
+2023-02-16 12:04:17.492 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7203/_framework/aspnetcore-browser-refresh.js - - - 200 11982 application/javascript;+charset=utf-8 10.1006ms
+2023-02-16 12:04:17.518 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7203/swagger/index.html - - - 200 - text/html;charset=utf-8 700.3198ms
+2023-02-16 12:04:17.518 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7203/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 38.9109ms
+2023-02-16 12:04:17.603 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7203/swagger/v1/swagger.json - -
+2023-02-16 12:04:17.786 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7203/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 183.3418ms
+2023-02-16 12:04:22.912 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7203/api/v1/OrderControllerV/GetAllOrder - -
+2023-02-16 12:04:23.711 +08:00 [INF] Executing endpoint 'webapi.WebAPI.Controllers.OrderControllerV1.GetAllOrders (webapi)'
+2023-02-16 12:04:23.731 +08:00 [INF] Route matched with {action = "GetAllOrders", controller = "OrderControllerV"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAllOrders() on controller webapi.WebAPI.Controllers.OrderControllerV1 (webapi).
+2023-02-16 12:04:24.213 +08:00 [INF] GetAllOrder executing..
+2023-02-16 12:04:25.080 +08:00 [INF] Connection established..
+2023-02-16 12:04:25.644 +08:00 [INF] Executed DbCommand (8ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [c].[CartItemId], [c].[CartItemName], [c].[CustomerId], [c].[OrderPrimaryId]
+FROM [CartItems] AS [c]
+WHERE [c].[OrderPrimaryId] IN ('a1d598f1-4fd1-474a-51a6-08db035c1ea6', '839734ad-7b83-48c9-81a0-08db03623e75', '52d01513-5d5b-4706-2182-08db04159695', '6b739960-0549-40b0-e421-08db04fe566e', 'a2403805-3bc7-4e6f-e422-08db04fe566e', 'cced369a-4b02-4548-109a-08db08103c55', '6a6422c3-7997-4998-3ab4-08db08a7965b', 'b16e3774-fae9-44c7-2b92-08db08bbb3da', '51f589d8-3a2c-43b9-19b2-08db09a1d382', 'f552bbd9-7f82-4ef0-4afa-08db09b0f5d4', 'b8040055-7102-42e5-f7ed-08db0b2a1207', '03285791-61f8-4953-f7ee-08db0b2a1207', '0765da17-231a-4997-abd8-08db0d6ccdf6', '73ed35fc-bafd-4c4c-abd9-08db0d6ccdf6', 'f6f422e6-81d5-4e40-30fd-08db0e5cb893', '12571598-b20e-4851-5333-08db0e5ef787')
+2023-02-16 12:04:25.730 +08:00 [INF] GetAllOrder success..
+2023-02-16 12:04:25.767 +08:00 [INF] Executing OkObjectResult, writing value of type 'webapi.AppService.Common.QueryOrCommandResult`1[[System.Collections.Generic.IEnumerable`1[[webapi.CQRS.ViewModels.OrderViewModel, webapi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2023-02-16 12:04:25.794 +08:00 [INF] Executed action webapi.WebAPI.Controllers.OrderControllerV1.GetAllOrders (webapi) in 2058.2748ms
+2023-02-16 12:04:25.795 +08:00 [INF] Executed endpoint 'webapi.WebAPI.Controllers.OrderControllerV1.GetAllOrders (webapi)'
+2023-02-16 12:04:25.810 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7203/api/v1/OrderControllerV/GetAllOrder - - - 200 - application/json;+charset=utf-8 2898.1373ms
+2023-02-16 14:58:07.835 +08:00 [INF] User profile is available. Using 'C:\Users\tjdbasalo\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2023-02-16 14:58:08.399 +08:00 [INF] Now listening on: https://localhost:7203
+2023-02-16 14:58:08.399 +08:00 [INF] Now listening on: http://localhost:5203
+2023-02-16 14:58:08.404 +08:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-02-16 14:58:08.405 +08:00 [INF] Hosting environment: Development
+2023-02-16 14:58:08.405 +08:00 [INF] Content root path: C:\Users\tjdbasalo\source\repos\webapi\webapi\
+2023-02-16 14:58:09.779 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7203/swagger/index.html - -
+2023-02-16 14:58:11.031 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7203/_framework/aspnetcore-browser-refresh.js - -
+2023-02-16 14:58:11.038 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7203/_vs/browserLink - -
+2023-02-16 14:58:11.084 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7203/_framework/aspnetcore-browser-refresh.js - - - 200 11982 application/javascript;+charset=utf-8 51.3529ms
+2023-02-16 14:58:11.093 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7203/swagger/index.html - - - 200 - text/html;charset=utf-8 1323.2500ms
+2023-02-16 14:58:11.149 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7203/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 111.2523ms
+2023-02-16 14:58:11.241 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7203/swagger/v1/swagger.json - -
+2023-02-16 14:58:11.534 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7203/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 292.4385ms
+2023-02-16 14:58:51.270 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7203/api/v1/OrderControllerV/GetAllOrder - -
+2023-02-16 14:58:52.416 +08:00 [INF] Executing endpoint 'webapi.WebAPI.Controllers.OrderControllerV1.GetAllOrders (webapi)'
+2023-02-16 14:58:52.437 +08:00 [INF] Route matched with {action = "GetAllOrders", controller = "OrderControllerV"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAllOrders() on controller webapi.WebAPI.Controllers.OrderControllerV1 (webapi).
+2023-02-16 14:58:52.976 +08:00 [INF] GetAllOrder executing..
+2023-02-16 14:58:53.847 +08:00 [INF] Connection established..
+2023-02-16 14:58:54.358 +08:00 [INF] Executed DbCommand (6ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [c].[CartItemId], [c].[CartItemName], [c].[CustomerId], [c].[OrderPrimaryId]
+FROM [CartItems] AS [c]
+WHERE [c].[OrderPrimaryId] IN ('a1d598f1-4fd1-474a-51a6-08db035c1ea6', '839734ad-7b83-48c9-81a0-08db03623e75', '52d01513-5d5b-4706-2182-08db04159695', '6b739960-0549-40b0-e421-08db04fe566e', 'a2403805-3bc7-4e6f-e422-08db04fe566e', 'cced369a-4b02-4548-109a-08db08103c55', '6a6422c3-7997-4998-3ab4-08db08a7965b', 'b16e3774-fae9-44c7-2b92-08db08bbb3da', '51f589d8-3a2c-43b9-19b2-08db09a1d382', 'f552bbd9-7f82-4ef0-4afa-08db09b0f5d4', 'b8040055-7102-42e5-f7ed-08db0b2a1207', '03285791-61f8-4953-f7ee-08db0b2a1207', '0765da17-231a-4997-abd8-08db0d6ccdf6', '73ed35fc-bafd-4c4c-abd9-08db0d6ccdf6', 'f6f422e6-81d5-4e40-30fd-08db0e5cb893', '12571598-b20e-4851-5333-08db0e5ef787')
+2023-02-16 14:58:54.388 +08:00 [INF] GetAllOrder success..
+2023-02-16 14:58:54.424 +08:00 [INF] Executing OkObjectResult, writing value of type 'webapi.AppService.Common.QueryOrCommandResult`1[[System.Collections.Generic.IEnumerable`1[[webapi.CQRS.ViewModels.OrderViewModel, webapi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2023-02-16 14:58:54.454 +08:00 [INF] Executed action webapi.WebAPI.Controllers.OrderControllerV1.GetAllOrders (webapi) in 2013.0287ms
+2023-02-16 14:58:54.455 +08:00 [INF] Executed endpoint 'webapi.WebAPI.Controllers.OrderControllerV1.GetAllOrders (webapi)'
+2023-02-16 14:58:54.472 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7203/api/v1/OrderControllerV/GetAllOrder - - - 200 - application/json;+charset=utf-8 3201.3248ms
+2023-02-16 15:15:34.781 +08:00 [INF] User profile is available. Using 'C:\Users\tjdbasalo\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2023-02-16 15:15:35.211 +08:00 [INF] Now listening on: https://localhost:7203
+2023-02-16 15:15:35.211 +08:00 [INF] Now listening on: http://localhost:5203
+2023-02-16 15:15:35.215 +08:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-02-16 15:15:35.215 +08:00 [INF] Hosting environment: Development
+2023-02-16 15:15:35.215 +08:00 [INF] Content root path: C:\Users\tjdbasalo\source\repos\webapi\webapi\
+2023-02-16 15:15:36.411 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7203/swagger/index.html - -
+2023-02-16 15:15:37.114 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7203/_framework/aspnetcore-browser-refresh.js - -
+2023-02-16 15:15:37.120 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7203/_vs/browserLink - -
+2023-02-16 15:15:37.127 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7203/_framework/aspnetcore-browser-refresh.js - - - 200 11982 application/javascript;+charset=utf-8 10.0045ms
+2023-02-16 15:15:37.136 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7203/swagger/index.html - - - 200 - text/html;charset=utf-8 738.1957ms
+2023-02-16 15:15:37.160 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7203/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 39.7288ms
+2023-02-16 15:15:37.261 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7203/swagger/v1/swagger.json - -
+2023-02-16 15:15:37.434 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7203/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 172.6537ms
+2023-02-16 15:16:47.657 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7203/api/v1/OrderControllerV/GetAllOrder - -
+2023-02-16 15:16:49.388 +08:00 [INF] Executing endpoint 'webapi.WebAPI.Controllers.OrderControllerV1.GetAllOrders (webapi)'
+2023-02-16 15:16:49.409 +08:00 [INF] Route matched with {action = "GetAllOrders", controller = "OrderControllerV"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAllOrders() on controller webapi.WebAPI.Controllers.OrderControllerV1 (webapi).
+2023-02-16 15:16:49.874 +08:00 [INF] GetAllOrder executing..
+2023-02-16 15:16:50.737 +08:00 [INF] Connection established..
+2023-02-16 15:16:51.251 +08:00 [INF] Executed DbCommand (5ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [c].[CartItemName], [c].[CustomerId]
+FROM [CartItems] AS [c]
+WHERE [c].[OrderPrimaryId] IN ('a1d598f1-4fd1-474a-51a6-08db035c1ea6', '839734ad-7b83-48c9-81a0-08db03623e75', '52d01513-5d5b-4706-2182-08db04159695', '6b739960-0549-40b0-e421-08db04fe566e', 'a2403805-3bc7-4e6f-e422-08db04fe566e', 'cced369a-4b02-4548-109a-08db08103c55', '6a6422c3-7997-4998-3ab4-08db08a7965b', 'b16e3774-fae9-44c7-2b92-08db08bbb3da', '51f589d8-3a2c-43b9-19b2-08db09a1d382', 'f552bbd9-7f82-4ef0-4afa-08db09b0f5d4', 'b8040055-7102-42e5-f7ed-08db0b2a1207', '03285791-61f8-4953-f7ee-08db0b2a1207', '0765da17-231a-4997-abd8-08db0d6ccdf6', '73ed35fc-bafd-4c4c-abd9-08db0d6ccdf6', 'f6f422e6-81d5-4e40-30fd-08db0e5cb893', '12571598-b20e-4851-5333-08db0e5ef787')
+2023-02-16 15:16:51.280 +08:00 [INF] GetAllOrder success..
+2023-02-16 15:16:51.313 +08:00 [INF] Executing OkObjectResult, writing value of type 'webapi.AppService.Common.QueryOrCommandResult`1[[System.Collections.Generic.IEnumerable`1[[webapi.CQRS.ViewModels.OrderViewModel, webapi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2023-02-16 15:16:51.344 +08:00 [INF] Executed action webapi.WebAPI.Controllers.OrderControllerV1.GetAllOrders (webapi) in 1929.6812ms
+2023-02-16 15:16:51.345 +08:00 [INF] Executed endpoint 'webapi.WebAPI.Controllers.OrderControllerV1.GetAllOrders (webapi)'
+2023-02-16 15:16:51.360 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7203/api/v1/OrderControllerV/GetAllOrder - - - 200 - application/json;+charset=utf-8 3702.6569ms
+2023-02-16 15:21:18.238 +08:00 [INF] User profile is available. Using 'C:\Users\tjdbasalo\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2023-02-16 15:21:18.682 +08:00 [INF] Now listening on: https://localhost:7203
+2023-02-16 15:21:18.682 +08:00 [INF] Now listening on: http://localhost:5203
+2023-02-16 15:21:18.685 +08:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-02-16 15:21:18.685 +08:00 [INF] Hosting environment: Development
+2023-02-16 15:21:18.685 +08:00 [INF] Content root path: C:\Users\tjdbasalo\source\repos\webapi\webapi\
+2023-02-16 15:21:19.405 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7203/swagger/index.html - -
+2023-02-16 15:21:20.042 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7203/_vs/browserLink - -
+2023-02-16 15:21:20.042 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7203/_framework/aspnetcore-browser-refresh.js - -
+2023-02-16 15:21:20.054 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7203/_framework/aspnetcore-browser-refresh.js - - - 200 11982 application/javascript;+charset=utf-8 6.7923ms
+2023-02-16 15:21:20.080 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7203/swagger/index.html - - - 200 - text/html;charset=utf-8 684.0646ms
+2023-02-16 15:21:20.087 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7203/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 45.2551ms
+2023-02-16 15:21:20.172 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7203/swagger/v1/swagger.json - -
+2023-02-16 15:21:20.367 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7203/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 194.7744ms
+2023-02-16 15:21:41.164 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7203/api/v1/OrderControllerV/GetAllOrder - -
+2023-02-16 15:21:41.885 +08:00 [INF] Executing endpoint 'webapi.WebAPI.Controllers.OrderControllerV1.GetAllOrders (webapi)'
+2023-02-16 15:21:41.905 +08:00 [INF] Route matched with {action = "GetAllOrders", controller = "OrderControllerV"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAllOrders() on controller webapi.WebAPI.Controllers.OrderControllerV1 (webapi).
+2023-02-16 15:21:42.357 +08:00 [INF] GetAllOrder executing..
+2023-02-16 15:21:43.228 +08:00 [INF] Connection established..
+2023-02-16 15:21:43.731 +08:00 [INF] Executed DbCommand (6ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [c].[CartItemId], [c].[CartItemName], [c].[CustomerId], [c].[OrderPrimaryId]
+FROM [CartItems] AS [c]
+WHERE [c].[OrderPrimaryId] IN ('a1d598f1-4fd1-474a-51a6-08db035c1ea6', '839734ad-7b83-48c9-81a0-08db03623e75', '52d01513-5d5b-4706-2182-08db04159695', '6b739960-0549-40b0-e421-08db04fe566e', 'a2403805-3bc7-4e6f-e422-08db04fe566e', 'cced369a-4b02-4548-109a-08db08103c55', '6a6422c3-7997-4998-3ab4-08db08a7965b', 'b16e3774-fae9-44c7-2b92-08db08bbb3da', '51f589d8-3a2c-43b9-19b2-08db09a1d382', 'f552bbd9-7f82-4ef0-4afa-08db09b0f5d4', 'b8040055-7102-42e5-f7ed-08db0b2a1207', '03285791-61f8-4953-f7ee-08db0b2a1207', '0765da17-231a-4997-abd8-08db0d6ccdf6', '73ed35fc-bafd-4c4c-abd9-08db0d6ccdf6', 'f6f422e6-81d5-4e40-30fd-08db0e5cb893', '12571598-b20e-4851-5333-08db0e5ef787')
+2023-02-16 15:21:43.809 +08:00 [INF] GetAllOrder success..
+2023-02-16 15:21:43.841 +08:00 [INF] Executing OkObjectResult, writing value of type 'webapi.AppService.Common.QueryOrCommandResult`1[[System.Collections.Generic.IEnumerable`1[[webapi.CQRS.ViewModels.OrderViewModel, webapi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2023-02-16 15:21:43.869 +08:00 [INF] Executed action webapi.WebAPI.Controllers.OrderControllerV1.GetAllOrders (webapi) in 1958.917ms
+2023-02-16 15:21:43.870 +08:00 [INF] Executed endpoint 'webapi.WebAPI.Controllers.OrderControllerV1.GetAllOrders (webapi)'
+2023-02-16 15:21:43.887 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7203/api/v1/OrderControllerV/GetAllOrder - - - 200 - application/json;+charset=utf-8 2723.0265ms
+2023-02-16 15:23:04.604 +08:00 [INF] User profile is available. Using 'C:\Users\tjdbasalo\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2023-02-16 15:23:05.348 +08:00 [INF] Now listening on: https://localhost:7203
+2023-02-16 15:23:05.349 +08:00 [INF] Now listening on: http://localhost:5203
+2023-02-16 15:23:05.353 +08:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-02-16 15:23:05.354 +08:00 [INF] Hosting environment: Development
+2023-02-16 15:23:05.354 +08:00 [INF] Content root path: C:\Users\tjdbasalo\source\repos\webapi\webapi\
+2023-02-16 15:23:06.665 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7203/swagger/index.html - -
+2023-02-16 15:23:07.531 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7203/_framework/aspnetcore-browser-refresh.js - -
+2023-02-16 15:23:07.531 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7203/_vs/browserLink - -
+2023-02-16 15:23:07.543 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7203/_framework/aspnetcore-browser-refresh.js - - - 200 11982 application/javascript;+charset=utf-8 8.0669ms
+2023-02-16 15:23:07.552 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7203/swagger/index.html - - - 200 - text/html;charset=utf-8 893.5461ms
+2023-02-16 15:23:07.556 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7203/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 25.6772ms
+2023-02-16 15:23:07.636 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7203/swagger/v1/swagger.json - -
+2023-02-16 15:23:07.800 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7203/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 163.8628ms
+2023-02-16 15:23:12.111 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7203/api/v1/OrderControllerV/GetAllOrder - -
+2023-02-16 15:23:13.198 +08:00 [INF] Executing endpoint 'webapi.WebAPI.Controllers.OrderControllerV1.GetAllOrders (webapi)'
+2023-02-16 15:23:13.218 +08:00 [INF] Route matched with {action = "GetAllOrders", controller = "OrderControllerV"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAllOrders() on controller webapi.WebAPI.Controllers.OrderControllerV1 (webapi).
+2023-02-16 15:23:13.729 +08:00 [INF] GetAllOrder executing..
+2023-02-16 15:23:14.592 +08:00 [INF] Connection established..
+2023-02-16 15:23:15.105 +08:00 [INF] Executed DbCommand (5ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [c].[CartItemId], [c].[CartItemName], [c].[CustomerId], [c].[OrderPrimaryId]
+FROM [CartItems] AS [c]
+WHERE [c].[OrderPrimaryId] IN ('a1d598f1-4fd1-474a-51a6-08db035c1ea6', '839734ad-7b83-48c9-81a0-08db03623e75', '52d01513-5d5b-4706-2182-08db04159695', '6b739960-0549-40b0-e421-08db04fe566e', 'a2403805-3bc7-4e6f-e422-08db04fe566e', 'cced369a-4b02-4548-109a-08db08103c55', '6a6422c3-7997-4998-3ab4-08db08a7965b', 'b16e3774-fae9-44c7-2b92-08db08bbb3da', '51f589d8-3a2c-43b9-19b2-08db09a1d382', 'f552bbd9-7f82-4ef0-4afa-08db09b0f5d4', 'b8040055-7102-42e5-f7ed-08db0b2a1207', '03285791-61f8-4953-f7ee-08db0b2a1207', '0765da17-231a-4997-abd8-08db0d6ccdf6', '73ed35fc-bafd-4c4c-abd9-08db0d6ccdf6', 'f6f422e6-81d5-4e40-30fd-08db0e5cb893', '12571598-b20e-4851-5333-08db0e5ef787')
+2023-02-16 15:23:15.132 +08:00 [INF] GetAllOrder success..
+2023-02-16 15:23:15.162 +08:00 [INF] Executing OkObjectResult, writing value of type 'webapi.AppService.Common.QueryOrCommandResult`1[[System.Collections.Generic.IEnumerable`1[[webapi.CQRS.ViewModels.OrderViewModel, webapi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2023-02-16 15:23:15.188 +08:00 [INF] Executed action webapi.WebAPI.Controllers.OrderControllerV1.GetAllOrders (webapi) in 1965.4878ms
+2023-02-16 15:23:15.190 +08:00 [INF] Executed endpoint 'webapi.WebAPI.Controllers.OrderControllerV1.GetAllOrders (webapi)'
+2023-02-16 15:23:15.203 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7203/api/v1/OrderControllerV/GetAllOrder - - - 200 - application/json;+charset=utf-8 3092.0150ms
+2023-02-16 15:23:54.296 +08:00 [INF] User profile is available. Using 'C:\Users\tjdbasalo\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2023-02-16 15:23:54.716 +08:00 [INF] Now listening on: https://localhost:7203
+2023-02-16 15:23:54.716 +08:00 [INF] Now listening on: http://localhost:5203
+2023-02-16 15:23:54.719 +08:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-02-16 15:23:54.719 +08:00 [INF] Hosting environment: Development
+2023-02-16 15:23:54.719 +08:00 [INF] Content root path: C:\Users\tjdbasalo\source\repos\webapi\webapi\
+2023-02-16 15:23:55.822 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7203/swagger/index.html - -
+2023-02-16 15:23:56.406 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7203/_framework/aspnetcore-browser-refresh.js - -
+2023-02-16 15:23:56.406 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7203/_vs/browserLink - -
+2023-02-16 15:23:56.418 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7203/_framework/aspnetcore-browser-refresh.js - - - 200 11982 application/javascript;+charset=utf-8 6.5065ms
+2023-02-16 15:23:56.425 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7203/swagger/index.html - - - 200 - text/html;charset=utf-8 610.3723ms
+2023-02-16 15:23:56.436 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7203/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 29.9853ms
+2023-02-16 15:23:56.518 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7203/swagger/v1/swagger.json - -
+2023-02-16 15:23:56.682 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7203/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 164.0667ms
+2023-02-16 15:24:04.944 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7203/api/v1/OrderControllerV/GetAllOrder - -
+2023-02-16 15:24:05.683 +08:00 [INF] Executing endpoint 'webapi.WebAPI.Controllers.OrderControllerV1.GetAllOrders (webapi)'
+2023-02-16 15:24:05.704 +08:00 [INF] Route matched with {action = "GetAllOrders", controller = "OrderControllerV"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAllOrders() on controller webapi.WebAPI.Controllers.OrderControllerV1 (webapi).
+2023-02-16 15:24:06.154 +08:00 [INF] GetAllOrder executing..
+2023-02-16 15:24:06.974 +08:00 [INF] Connection established..
+2023-02-16 15:24:07.467 +08:00 [INF] Executed DbCommand (5ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [c].[CartItemId], [c].[CartItemName], [c].[CustomerId]
+FROM [CartItems] AS [c]
+WHERE [c].[OrderPrimaryId] IN ('a1d598f1-4fd1-474a-51a6-08db035c1ea6', '839734ad-7b83-48c9-81a0-08db03623e75', '52d01513-5d5b-4706-2182-08db04159695', '6b739960-0549-40b0-e421-08db04fe566e', 'a2403805-3bc7-4e6f-e422-08db04fe566e', 'cced369a-4b02-4548-109a-08db08103c55', '6a6422c3-7997-4998-3ab4-08db08a7965b', 'b16e3774-fae9-44c7-2b92-08db08bbb3da', '51f589d8-3a2c-43b9-19b2-08db09a1d382', 'f552bbd9-7f82-4ef0-4afa-08db09b0f5d4', 'b8040055-7102-42e5-f7ed-08db0b2a1207', '03285791-61f8-4953-f7ee-08db0b2a1207', '0765da17-231a-4997-abd8-08db0d6ccdf6', '73ed35fc-bafd-4c4c-abd9-08db0d6ccdf6', 'f6f422e6-81d5-4e40-30fd-08db0e5cb893', '12571598-b20e-4851-5333-08db0e5ef787')
+2023-02-16 15:24:07.498 +08:00 [INF] GetAllOrder success..
+2023-02-16 15:24:07.531 +08:00 [INF] Executing OkObjectResult, writing value of type 'webapi.AppService.Common.QueryOrCommandResult`1[[System.Collections.Generic.IEnumerable`1[[webapi.CQRS.ViewModels.OrderViewModel, webapi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2023-02-16 15:24:07.557 +08:00 [INF] Executed action webapi.WebAPI.Controllers.OrderControllerV1.GetAllOrders (webapi) in 1847.8316ms
+2023-02-16 15:24:07.558 +08:00 [INF] Executed endpoint 'webapi.WebAPI.Controllers.OrderControllerV1.GetAllOrders (webapi)'
+2023-02-16 15:24:07.573 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7203/api/v1/OrderControllerV/GetAllOrder - - - 200 - application/json;+charset=utf-8 2628.7069ms
+2023-02-16 15:26:43.566 +08:00 [INF] User profile is available. Using 'C:\Users\tjdbasalo\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2023-02-16 15:26:44.021 +08:00 [INF] Now listening on: https://localhost:7203
+2023-02-16 15:26:44.021 +08:00 [INF] Now listening on: http://localhost:5203
+2023-02-16 15:26:44.024 +08:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-02-16 15:26:44.025 +08:00 [INF] Hosting environment: Development
+2023-02-16 15:26:44.025 +08:00 [INF] Content root path: C:\Users\tjdbasalo\source\repos\webapi\webapi\
+2023-02-16 15:26:44.845 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7203/swagger/index.html - -
+2023-02-16 15:26:45.467 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7203/_framework/aspnetcore-browser-refresh.js - -
+2023-02-16 15:26:45.467 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7203/_vs/browserLink - -
+2023-02-16 15:26:45.481 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7203/_framework/aspnetcore-browser-refresh.js - - - 200 11982 application/javascript;+charset=utf-8 12.7336ms
+2023-02-16 15:26:45.500 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7203/swagger/index.html - - - 200 - text/html;charset=utf-8 664.2379ms
+2023-02-16 15:26:45.506 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7203/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 38.7887ms
+2023-02-16 15:26:45.595 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7203/swagger/v1/swagger.json - -
+2023-02-16 15:26:45.768 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7203/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 173.1311ms
+2023-02-16 15:26:55.301 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7203/api/v1/OrderControllerV/GetAllOrder - -
+2023-02-16 15:26:56.011 +08:00 [INF] Executing endpoint 'webapi.WebAPI.Controllers.OrderControllerV1.GetAllOrders (webapi)'
+2023-02-16 15:26:56.030 +08:00 [INF] Route matched with {action = "GetAllOrders", controller = "OrderControllerV"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAllOrders() on controller webapi.WebAPI.Controllers.OrderControllerV1 (webapi).
+2023-02-16 15:26:56.501 +08:00 [INF] GetAllOrder executing..
+2023-02-16 15:26:57.333 +08:00 [INF] Connection established..
+2023-02-16 15:26:57.877 +08:00 [INF] Executed DbCommand (5ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [c].[OrderPrimaryId], [c].[CartItemId], [c].[CartItemName], [c].[CustomerId]
+FROM [CartItems] AS [c]
+WHERE [c].[OrderPrimaryId] IN ('a1d598f1-4fd1-474a-51a6-08db035c1ea6', '839734ad-7b83-48c9-81a0-08db03623e75', '52d01513-5d5b-4706-2182-08db04159695', '6b739960-0549-40b0-e421-08db04fe566e', 'a2403805-3bc7-4e6f-e422-08db04fe566e', 'cced369a-4b02-4548-109a-08db08103c55', '6a6422c3-7997-4998-3ab4-08db08a7965b', 'b16e3774-fae9-44c7-2b92-08db08bbb3da', '51f589d8-3a2c-43b9-19b2-08db09a1d382', 'f552bbd9-7f82-4ef0-4afa-08db09b0f5d4', 'b8040055-7102-42e5-f7ed-08db0b2a1207', '03285791-61f8-4953-f7ee-08db0b2a1207', '0765da17-231a-4997-abd8-08db0d6ccdf6', '73ed35fc-bafd-4c4c-abd9-08db0d6ccdf6', 'f6f422e6-81d5-4e40-30fd-08db0e5cb893', '12571598-b20e-4851-5333-08db0e5ef787')
+ORDER BY [c].[OrderPrimaryId]
+2023-02-16 15:26:57.958 +08:00 [INF] GetAllOrder success..
+2023-02-16 15:26:57.990 +08:00 [INF] Executing OkObjectResult, writing value of type 'webapi.AppService.Common.QueryOrCommandResult`1[[System.Collections.Generic.IEnumerable`1[[webapi.CQRS.ViewModels.OrderViewModel, webapi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2023-02-16 15:26:58.017 +08:00 [INF] Executed action webapi.WebAPI.Controllers.OrderControllerV1.GetAllOrders (webapi) in 1982.6817ms
+2023-02-16 15:26:58.019 +08:00 [INF] Executed endpoint 'webapi.WebAPI.Controllers.OrderControllerV1.GetAllOrders (webapi)'
+2023-02-16 15:26:58.036 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7203/api/v1/OrderControllerV/GetAllOrder - - - 200 - application/json;+charset=utf-8 2735.2874ms
+2023-02-16 15:27:58.368 +08:00 [INF] User profile is available. Using 'C:\Users\tjdbasalo\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2023-02-16 15:27:58.776 +08:00 [INF] Now listening on: https://localhost:7203
+2023-02-16 15:27:58.776 +08:00 [INF] Now listening on: http://localhost:5203
+2023-02-16 15:27:58.779 +08:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-02-16 15:27:58.780 +08:00 [INF] Hosting environment: Development
+2023-02-16 15:27:58.780 +08:00 [INF] Content root path: C:\Users\tjdbasalo\source\repos\webapi\webapi\
+2023-02-16 15:27:59.694 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7203/swagger/index.html - -
+2023-02-16 15:28:00.321 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7203/_vs/browserLink - -
+2023-02-16 15:28:00.321 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7203/_framework/aspnetcore-browser-refresh.js - -
+2023-02-16 15:28:00.330 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7203/_framework/aspnetcore-browser-refresh.js - - - 200 11982 application/javascript;+charset=utf-8 7.0524ms
+2023-02-16 15:28:00.337 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7203/swagger/index.html - - - 200 - text/html;charset=utf-8 648.4939ms
+2023-02-16 15:28:00.356 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7203/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 34.9517ms
+2023-02-16 15:28:00.435 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7203/swagger/v1/swagger.json - -
+2023-02-16 15:28:00.597 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7203/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 162.0885ms
+2023-02-16 15:28:08.915 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7203/api/v1/OrderControllerV/GetAllOrder - -
+2023-02-16 15:28:09.681 +08:00 [INF] Executing endpoint 'webapi.WebAPI.Controllers.OrderControllerV1.GetAllOrders (webapi)'
+2023-02-16 15:28:09.702 +08:00 [INF] Route matched with {action = "GetAllOrders", controller = "OrderControllerV"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAllOrders() on controller webapi.WebAPI.Controllers.OrderControllerV1 (webapi).
+2023-02-16 15:28:10.170 +08:00 [INF] GetAllOrder executing..
+2023-02-16 15:28:11.022 +08:00 [INF] Connection established..
+2023-02-16 15:28:11.565 +08:00 [INF] Executed DbCommand (5ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [c].[CartItemId], [c].[CartItemName], [c].[CustomerId], [c].[OrderPrimaryId]
+FROM [CartItems] AS [c]
+WHERE [c].[OrderPrimaryId] IN ('a1d598f1-4fd1-474a-51a6-08db035c1ea6', '839734ad-7b83-48c9-81a0-08db03623e75', '52d01513-5d5b-4706-2182-08db04159695', '6b739960-0549-40b0-e421-08db04fe566e', 'a2403805-3bc7-4e6f-e422-08db04fe566e', 'cced369a-4b02-4548-109a-08db08103c55', '6a6422c3-7997-4998-3ab4-08db08a7965b', 'b16e3774-fae9-44c7-2b92-08db08bbb3da', '51f589d8-3a2c-43b9-19b2-08db09a1d382', 'f552bbd9-7f82-4ef0-4afa-08db09b0f5d4', 'b8040055-7102-42e5-f7ed-08db0b2a1207', '03285791-61f8-4953-f7ee-08db0b2a1207', '0765da17-231a-4997-abd8-08db0d6ccdf6', '73ed35fc-bafd-4c4c-abd9-08db0d6ccdf6', 'f6f422e6-81d5-4e40-30fd-08db0e5cb893', '12571598-b20e-4851-5333-08db0e5ef787')
+2023-02-16 15:28:11.638 +08:00 [INF] GetAllOrder success..
+2023-02-16 15:28:11.670 +08:00 [INF] Executing OkObjectResult, writing value of type 'webapi.AppService.Common.QueryOrCommandResult`1[[System.Collections.Generic.IEnumerable`1[[webapi.CQRS.ViewModels.OrderViewModel, webapi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2023-02-16 15:28:11.695 +08:00 [INF] Executed action webapi.WebAPI.Controllers.OrderControllerV1.GetAllOrders (webapi) in 1988.3631ms
+2023-02-16 15:28:11.697 +08:00 [INF] Executed endpoint 'webapi.WebAPI.Controllers.OrderControllerV1.GetAllOrders (webapi)'
+2023-02-16 15:28:11.712 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7203/api/v1/OrderControllerV/GetAllOrder - - - 200 - application/json;+charset=utf-8 2796.4063ms
+2023-02-16 15:28:45.598 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7203/api/v1/CartItemControllerV/Get-All-Pending-Cart-Item - -
+2023-02-16 15:28:45.609 +08:00 [INF] Executing endpoint 'webapi.WebAPI.Controllers.CartItemControllerV1.GetAllCartItems (webapi)'
+2023-02-16 15:28:45.611 +08:00 [INF] Route matched with {action = "GetAllCartItems", controller = "CartItemControllerV"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAllCartItems() on controller webapi.WebAPI.Controllers.CartItemControllerV1 (webapi).
+2023-02-16 15:28:45.626 +08:00 [INF] GetAllCartItem executing..
+2023-02-16 15:28:45.687 +08:00 [ERR] Error in GetAllCartItem
+System.InvalidOperationException: A parameterless default constructor or one matching signature (System.Guid CartItemId, System.String CartItemName, System.Guid CustomerId, System.Guid OrderPrimaryId) is required for webapi.Domain.Models.CartItemModel materialization
+   at Dapper.SqlMapper.GenerateDeserializerFromMap(Type type, IDataReader reader, Int32 startBound, Int32 length, Boolean returnNullIfFirstMissing, ILGenerator il) in /_/Dapper/SqlMapper.cs:line 3297
+   at Dapper.SqlMapper.GetTypeDeserializerImpl(Type type, IDataReader reader, Int32 startBound, Int32 length, Boolean returnNullIfFirstMissing) in /_/Dapper/SqlMapper.cs:line 3131
+   at Dapper.SqlMapper.TypeDeserializerCache.GetReader(IDataReader reader, Int32 startBound, Int32 length, Boolean returnNullIfFirstMissing) in /_/Dapper/SqlMapper.TypeDeserializerCache.cs:line 151
+   at Dapper.SqlMapper.TypeDeserializerCache.GetReader(Type type, IDataReader reader, Int32 startBound, Int32 length, Boolean returnNullIfFirstMissing) in /_/Dapper/SqlMapper.TypeDeserializerCache.cs:line 50
+   at Dapper.SqlMapper.GetDeserializer(Type type, IDataReader reader, Int32 startBound, Int32 length, Boolean returnNullIfFirstMissing) in /_/Dapper/SqlMapper.cs:line 1837
+   at Dapper.SqlMapper.QueryAsync[T](IDbConnection cnn, Type effectiveType, CommandDefinition command) in /_/Dapper/SqlMapper.Async.cs:line 426
+   at webapi.Infrastructure.Database.Repository.CartItemRepository.GetAllCartItems() in C:\Users\tjdbasalo\source\repos\webapi\webapi\Infrastructure\Database\Repository\CartItemRepository.cs:line 92
+2023-02-16 15:28:45.903 +08:00 [INF] Executing BadRequestObjectResult, writing value of type 'webapi.AppService.Common.QueryOrCommandResult`1[[System.Collections.Generic.IEnumerable`1[[webapi.CQRS.ViewModels.CartItemViewModel, webapi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2023-02-16 15:28:45.904 +08:00 [INF] Executed action webapi.WebAPI.Controllers.CartItemControllerV1.GetAllCartItems (webapi) in 293.4047ms
+2023-02-16 15:28:45.904 +08:00 [INF] Executed endpoint 'webapi.WebAPI.Controllers.CartItemControllerV1.GetAllCartItems (webapi)'
+2023-02-16 15:28:45.904 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7203/api/v1/CartItemControllerV/Get-All-Pending-Cart-Item - - - 400 - application/json;+charset=utf-8 306.0965ms
+2023-02-16 15:30:07.368 +08:00 [INF] User profile is available. Using 'C:\Users\tjdbasalo\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2023-02-16 15:30:07.726 +08:00 [INF] Now listening on: https://localhost:7203
+2023-02-16 15:30:07.726 +08:00 [INF] Now listening on: http://localhost:5203
+2023-02-16 15:30:07.729 +08:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-02-16 15:30:07.729 +08:00 [INF] Hosting environment: Development
+2023-02-16 15:30:07.729 +08:00 [INF] Content root path: C:\Users\tjdbasalo\source\repos\webapi\webapi\
+2023-02-16 15:30:08.458 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7203/swagger/index.html - -
+2023-02-16 15:30:09.063 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7203/_framework/aspnetcore-browser-refresh.js - -
+2023-02-16 15:30:09.063 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7203/_vs/browserLink - -
+2023-02-16 15:30:09.086 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7203/_framework/aspnetcore-browser-refresh.js - - - 200 11982 application/javascript;+charset=utf-8 9.2030ms
+2023-02-16 15:30:09.116 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7203/swagger/index.html - - - 200 - text/html;charset=utf-8 666.8417ms
+2023-02-16 15:30:09.120 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7203/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 56.2294ms
+2023-02-16 15:30:09.211 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7203/swagger/v1/swagger.json - -
+2023-02-16 15:30:09.393 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7203/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 182.1219ms
+2023-02-16 15:30:18.820 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7203/api/v1/CartItemControllerV/Get-All-Pending-Cart-Item - -
+2023-02-16 15:30:19.488 +08:00 [INF] Executing endpoint 'webapi.WebAPI.Controllers.CartItemControllerV1.GetAllCartItems (webapi)'
+2023-02-16 15:30:19.508 +08:00 [INF] Route matched with {action = "GetAllCartItems", controller = "CartItemControllerV"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAllCartItems() on controller webapi.WebAPI.Controllers.CartItemControllerV1 (webapi).
+2023-02-16 15:30:20.913 +08:00 [INF] GetAllCartItem executing..
+2023-02-16 15:30:20.959 +08:00 [ERR] Error in GetAllCartItem
+System.InvalidOperationException: A parameterless default constructor or one matching signature (System.Guid CartItemId, System.String CartItemName, System.Guid CustomerId, System.Guid OrderPrimaryId) is required for webapi.Domain.Models.CartItemModel materialization
+   at Dapper.SqlMapper.GenerateDeserializerFromMap(Type type, IDataReader reader, Int32 startBound, Int32 length, Boolean returnNullIfFirstMissing, ILGenerator il) in /_/Dapper/SqlMapper.cs:line 3297
+   at Dapper.SqlMapper.GetTypeDeserializerImpl(Type type, IDataReader reader, Int32 startBound, Int32 length, Boolean returnNullIfFirstMissing) in /_/Dapper/SqlMapper.cs:line 3131
+   at Dapper.SqlMapper.TypeDeserializerCache.GetReader(IDataReader reader, Int32 startBound, Int32 length, Boolean returnNullIfFirstMissing) in /_/Dapper/SqlMapper.TypeDeserializerCache.cs:line 151
+   at Dapper.SqlMapper.TypeDeserializerCache.GetReader(Type type, IDataReader reader, Int32 startBound, Int32 length, Boolean returnNullIfFirstMissing) in /_/Dapper/SqlMapper.TypeDeserializerCache.cs:line 50
+   at Dapper.SqlMapper.GetDeserializer(Type type, IDataReader reader, Int32 startBound, Int32 length, Boolean returnNullIfFirstMissing) in /_/Dapper/SqlMapper.cs:line 1837
+   at Dapper.SqlMapper.QueryAsync[T](IDbConnection cnn, Type effectiveType, CommandDefinition command) in /_/Dapper/SqlMapper.Async.cs:line 426
+   at webapi.Infrastructure.Database.Repository.CartItemRepository.GetAllCartItems() in C:\Users\tjdbasalo\source\repos\webapi\webapi\Infrastructure\Database\Repository\CartItemRepository.cs:line 92
+2023-02-16 15:30:21.132 +08:00 [INF] Executing BadRequestObjectResult, writing value of type 'webapi.AppService.Common.QueryOrCommandResult`1[[System.Collections.Generic.IEnumerable`1[[webapi.CQRS.ViewModels.CartItemViewModel, webapi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2023-02-16 15:30:21.149 +08:00 [INF] Executed action webapi.WebAPI.Controllers.CartItemControllerV1.GetAllCartItems (webapi) in 1636.2752ms
+2023-02-16 15:30:21.151 +08:00 [INF] Executed endpoint 'webapi.WebAPI.Controllers.CartItemControllerV1.GetAllCartItems (webapi)'
+2023-02-16 15:30:21.167 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7203/api/v1/CartItemControllerV/Get-All-Pending-Cart-Item - - - 400 - application/json;+charset=utf-8 2347.1870ms
+2023-02-16 15:31:04.037 +08:00 [INF] Request starting HTTP/2 POST https://localhost:7203/api/v1/CartItemControllerV/Add-Cart-Item application/json 84
+2023-02-16 15:31:04.051 +08:00 [INF] Executing endpoint 'webapi.WebAPI.Controllers.CartItemControllerV1.AddCartItem (webapi)'
+2023-02-16 15:31:04.061 +08:00 [INF] Route matched with {action = "AddCartItem", controller = "CartItemControllerV"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] AddCartItem(webapi.AppService.DTO.DTOCartItem.AddCartItemDTO) on controller webapi.WebAPI.Controllers.CartItemControllerV1 (webapi).
+2023-02-16 15:31:04.226 +08:00 [INF] AddCartItem executing..
+2023-02-16 15:31:04.685 +08:00 [INF] Executed DbCommand (4ms) [Parameters=[@__cartitem_CustomerId_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[UserId], [u].[UserName]
+FROM [Users] AS [u]
+WHERE [u].[UserId] = @__cartitem_CustomerId_0
+2023-02-16 15:31:04.769 +08:00 [INF] Executed DbCommand (7ms) [Parameters=[@__cartitem_CustomerId_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [o].[OrderId], [o].[CustomerId], [o].[Status], [o].[UserPrimaryID]
+FROM [Orders] AS [o]
+WHERE [o].[UserPrimaryID] = @__cartitem_CustomerId_0 AND [o].[Status] = CAST(0 AS smallint)
+2023-02-16 15:31:04.770 +08:00 [INF] Create new Order
+2023-02-16 15:31:04.770 +08:00 [INF] Save Order success..
+2023-02-16 15:31:04.991 +08:00 [INF] Executed DbCommand (5ms) [Parameters=[@p0='?' (DbType = Guid), @p1='?' (DbType = Guid), @p2='?' (DbType = Int16), @p3='?' (DbType = Guid), @p4='?' (DbType = Guid), @p5='?' (Size = 4000), @p6='?' (DbType = Guid), @p7='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [Orders] ([OrderId], [CustomerId], [Status], [UserPrimaryID])
+VALUES (@p0, @p1, @p2, @p3);
+INSERT INTO [CartItems] ([CartItemId], [CartItemName], [CustomerId], [OrderPrimaryId])
+VALUES (@p4, @p5, @p6, @p7);
+2023-02-16 15:31:05.056 +08:00 [INF] Executing OkObjectResult, writing value of type 'webapi.AppService.Common.QueryOrCommandResult`1[[System.Guid, System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2023-02-16 15:31:05.058 +08:00 [INF] Executed action webapi.WebAPI.Controllers.CartItemControllerV1.AddCartItem (webapi) in 997.1137ms
+2023-02-16 15:31:05.058 +08:00 [INF] Executed endpoint 'webapi.WebAPI.Controllers.CartItemControllerV1.AddCartItem (webapi)'
+2023-02-16 15:31:05.059 +08:00 [INF] Request finished HTTP/2 POST https://localhost:7203/api/v1/CartItemControllerV/Add-Cart-Item application/json 84 - 200 - application/json;+charset=utf-8 1021.0915ms
+2023-02-16 15:31:10.874 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7203/api/v1/CartItemControllerV/Get-All-Pending-Cart-Item - -
+2023-02-16 15:31:10.875 +08:00 [INF] Executing endpoint 'webapi.WebAPI.Controllers.CartItemControllerV1.GetAllCartItems (webapi)'
+2023-02-16 15:31:10.875 +08:00 [INF] Route matched with {action = "GetAllCartItems", controller = "CartItemControllerV"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAllCartItems() on controller webapi.WebAPI.Controllers.CartItemControllerV1 (webapi).
+2023-02-16 15:31:10.916 +08:00 [INF] GetAllCartItem executing..
+2023-02-16 15:31:10.948 +08:00 [ERR] Error in GetAllCartItem
+System.InvalidOperationException: A parameterless default constructor or one matching signature (System.Guid CartItemId, System.String CartItemName, System.Guid CustomerId, System.Guid OrderPrimaryId) is required for webapi.Domain.Models.CartItemModel materialization
+   at Dapper.SqlMapper.GenerateDeserializerFromMap(Type type, IDataReader reader, Int32 startBound, Int32 length, Boolean returnNullIfFirstMissing, ILGenerator il) in /_/Dapper/SqlMapper.cs:line 3297
+   at Dapper.SqlMapper.GetTypeDeserializerImpl(Type type, IDataReader reader, Int32 startBound, Int32 length, Boolean returnNullIfFirstMissing) in /_/Dapper/SqlMapper.cs:line 3131
+   at Dapper.SqlMapper.TypeDeserializerCache.GetReader(IDataReader reader, Int32 startBound, Int32 length, Boolean returnNullIfFirstMissing) in /_/Dapper/SqlMapper.TypeDeserializerCache.cs:line 151
+   at Dapper.SqlMapper.TypeDeserializerCache.GetReader(Type type, IDataReader reader, Int32 startBound, Int32 length, Boolean returnNullIfFirstMissing) in /_/Dapper/SqlMapper.TypeDeserializerCache.cs:line 50
+   at Dapper.SqlMapper.GetDeserializer(Type type, IDataReader reader, Int32 startBound, Int32 length, Boolean returnNullIfFirstMissing) in /_/Dapper/SqlMapper.cs:line 1837
+   at Dapper.SqlMapper.QueryAsync[T](IDbConnection cnn, Type effectiveType, CommandDefinition command) in /_/Dapper/SqlMapper.Async.cs:line 426
+   at webapi.Infrastructure.Database.Repository.CartItemRepository.GetAllCartItems() in C:\Users\tjdbasalo\source\repos\webapi\webapi\Infrastructure\Database\Repository\CartItemRepository.cs:line 92
+2023-02-16 15:31:11.032 +08:00 [INF] Executing BadRequestObjectResult, writing value of type 'webapi.AppService.Common.QueryOrCommandResult`1[[System.Collections.Generic.IEnumerable`1[[webapi.CQRS.ViewModels.CartItemViewModel, webapi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2023-02-16 15:31:11.032 +08:00 [INF] Executed action webapi.WebAPI.Controllers.CartItemControllerV1.GetAllCartItems (webapi) in 156.4606ms
+2023-02-16 15:31:11.032 +08:00 [INF] Executed endpoint 'webapi.WebAPI.Controllers.CartItemControllerV1.GetAllCartItems (webapi)'
+2023-02-16 15:31:11.032 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7203/api/v1/CartItemControllerV/Get-All-Pending-Cart-Item - - - 400 - application/json;+charset=utf-8 158.3455ms
+2023-02-16 15:33:31.869 +08:00 [INF] User profile is available. Using 'C:\Users\tjdbasalo\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2023-02-16 15:33:32.262 +08:00 [INF] Now listening on: https://localhost:7203
+2023-02-16 15:33:32.262 +08:00 [INF] Now listening on: http://localhost:5203
+2023-02-16 15:33:32.265 +08:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-02-16 15:33:32.265 +08:00 [INF] Hosting environment: Development
+2023-02-16 15:33:32.265 +08:00 [INF] Content root path: C:\Users\tjdbasalo\source\repos\webapi\webapi\
+2023-02-16 15:33:32.906 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7203/swagger/index.html - -
+2023-02-16 15:33:33.532 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7203/_vs/browserLink - -
+2023-02-16 15:33:33.532 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7203/_framework/aspnetcore-browser-refresh.js - -
+2023-02-16 15:33:33.546 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7203/_framework/aspnetcore-browser-refresh.js - - - 200 11982 application/javascript;+charset=utf-8 13.0853ms
+2023-02-16 15:33:33.554 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7203/swagger/index.html - - - 200 - text/html;charset=utf-8 655.9247ms
+2023-02-16 15:33:33.566 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7203/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 34.2284ms
+2023-02-16 15:33:33.647 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7203/swagger/v1/swagger.json - -
+2023-02-16 15:33:33.811 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7203/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 163.8927ms
+2023-02-16 15:33:51.060 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7203/api/v1/CartItemControllerV/Get-All-Pending-Cart-Item - -
+2023-02-16 15:33:51.852 +08:00 [INF] Executing endpoint 'webapi.WebAPI.Controllers.CartItemControllerV1.GetAllCartItems (webapi)'
+2023-02-16 15:33:51.872 +08:00 [INF] Route matched with {action = "GetAllCartItems", controller = "CartItemControllerV"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAllCartItems() on controller webapi.WebAPI.Controllers.CartItemControllerV1 (webapi).
+2023-02-16 15:33:53.146 +08:00 [INF] GetAllCartItem executing..
+2023-02-16 15:33:53.166 +08:00 [INF] Success..
+2023-02-16 15:33:53.200 +08:00 [INF] Executing OkObjectResult, writing value of type 'webapi.AppService.Common.QueryOrCommandResult`1[[System.Collections.Generic.IEnumerable`1[[webapi.CQRS.ViewModels.CartItemViewModel, webapi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2023-02-16 15:33:53.225 +08:00 [INF] Executed action webapi.WebAPI.Controllers.CartItemControllerV1.GetAllCartItems (webapi) in 1348.5593ms
+2023-02-16 15:33:53.227 +08:00 [INF] Executed endpoint 'webapi.WebAPI.Controllers.CartItemControllerV1.GetAllCartItems (webapi)'
+2023-02-16 15:33:53.242 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7203/api/v1/CartItemControllerV/Get-All-Pending-Cart-Item - - - 200 - application/json;+charset=utf-8 2182.4840ms
+2023-02-16 15:50:25.292 +08:00 [INF] User profile is available. Using 'C:\Users\tjdbasalo\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2023-02-16 15:50:25.700 +08:00 [INF] Now listening on: https://localhost:7203
+2023-02-16 15:50:25.700 +08:00 [INF] Now listening on: http://localhost:5203
+2023-02-16 15:50:25.704 +08:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-02-16 15:50:25.705 +08:00 [INF] Hosting environment: Development
+2023-02-16 15:50:25.705 +08:00 [INF] Content root path: C:\Users\tjdbasalo\source\repos\webapi\webapi\
+2023-02-16 15:50:26.504 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7203/swagger/index.html - -
+2023-02-16 15:50:27.109 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7203/_vs/browserLink - -
+2023-02-16 15:50:27.109 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7203/_framework/aspnetcore-browser-refresh.js - -
+2023-02-16 15:50:27.117 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7203/_framework/aspnetcore-browser-refresh.js - - - 200 11982 application/javascript;+charset=utf-8 7.0210ms
+2023-02-16 15:50:27.124 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7203/swagger/index.html - - - 200 - text/html;charset=utf-8 626.3135ms
+2023-02-16 15:50:27.128 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7203/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 18.9580ms
+2023-02-16 15:50:27.231 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7203/swagger/v1/swagger.json - -
+2023-02-16 15:50:27.428 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7203/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 196.7920ms
+2023-02-16 15:50:39.215 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7203/api/v1/CartItemControllerV/Get-All-Pending-Cart-Item - -
+2023-02-16 15:50:40.054 +08:00 [INF] Executing endpoint 'webapi.WebAPI.Controllers.CartItemControllerV1.GetAllCartItems (webapi)'
+2023-02-16 15:50:40.073 +08:00 [INF] Route matched with {action = "GetAllCartItems", controller = "CartItemControllerV"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAllCartItems() on controller webapi.WebAPI.Controllers.CartItemControllerV1 (webapi).
+2023-02-16 15:50:41.325 +08:00 [INF] GetAllCartItem executing..
+2023-02-16 15:50:41.372 +08:00 [ERR] Error in GetAllCartItem
+System.InvalidOperationException: A parameterless default constructor or one matching signature (System.Guid CartItemId, System.String CartItemName, System.Guid CustomerId, System.Guid OrderPrimaryId) is required for webapi.Domain.Models.CartItemModel materialization
+   at Dapper.SqlMapper.GenerateDeserializerFromMap(Type type, IDataReader reader, Int32 startBound, Int32 length, Boolean returnNullIfFirstMissing, ILGenerator il) in /_/Dapper/SqlMapper.cs:line 3297
+   at Dapper.SqlMapper.GetTypeDeserializerImpl(Type type, IDataReader reader, Int32 startBound, Int32 length, Boolean returnNullIfFirstMissing) in /_/Dapper/SqlMapper.cs:line 3131
+   at Dapper.SqlMapper.TypeDeserializerCache.GetReader(IDataReader reader, Int32 startBound, Int32 length, Boolean returnNullIfFirstMissing) in /_/Dapper/SqlMapper.TypeDeserializerCache.cs:line 151
+   at Dapper.SqlMapper.TypeDeserializerCache.GetReader(Type type, IDataReader reader, Int32 startBound, Int32 length, Boolean returnNullIfFirstMissing) in /_/Dapper/SqlMapper.TypeDeserializerCache.cs:line 50
+   at Dapper.SqlMapper.GetDeserializer(Type type, IDataReader reader, Int32 startBound, Int32 length, Boolean returnNullIfFirstMissing) in /_/Dapper/SqlMapper.cs:line 1837
+   at Dapper.SqlMapper.QueryAsync[T](IDbConnection cnn, Type effectiveType, CommandDefinition command) in /_/Dapper/SqlMapper.Async.cs:line 426
+   at webapi.Infrastructure.Database.Repository.CartItemRepository.GetAllCartItems() in C:\Users\tjdbasalo\source\repos\webapi\webapi\Infrastructure\Database\Repository\CartItemRepository.cs:line 92
+2023-02-16 15:50:41.551 +08:00 [INF] Executing BadRequestObjectResult, writing value of type 'webapi.AppService.Common.QueryOrCommandResult`1[[System.Collections.Generic.IEnumerable`1[[webapi.CQRS.ViewModels.CartItemViewModel, webapi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2023-02-16 15:50:41.569 +08:00 [INF] Executed action webapi.WebAPI.Controllers.CartItemControllerV1.GetAllCartItems (webapi) in 1491.3731ms
+2023-02-16 15:50:41.571 +08:00 [INF] Executed endpoint 'webapi.WebAPI.Controllers.CartItemControllerV1.GetAllCartItems (webapi)'
+2023-02-16 15:50:41.587 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7203/api/v1/CartItemControllerV/Get-All-Pending-Cart-Item - - - 400 - application/json;+charset=utf-8 2373.0465ms
+2023-02-16 15:51:28.394 +08:00 [INF] User profile is available. Using 'C:\Users\tjdbasalo\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2023-02-16 15:51:28.788 +08:00 [INF] Now listening on: https://localhost:7203
+2023-02-16 15:51:28.788 +08:00 [INF] Now listening on: http://localhost:5203
+2023-02-16 15:51:28.791 +08:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-02-16 15:51:28.791 +08:00 [INF] Hosting environment: Development
+2023-02-16 15:51:28.791 +08:00 [INF] Content root path: C:\Users\tjdbasalo\source\repos\webapi\webapi\
+2023-02-16 15:51:29.840 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7203/swagger/index.html - -
+2023-02-16 15:51:30.420 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7203/_framework/aspnetcore-browser-refresh.js - -
+2023-02-16 15:51:30.420 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7203/_vs/browserLink - -
+2023-02-16 15:51:30.435 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7203/_framework/aspnetcore-browser-refresh.js - - - 200 11982 application/javascript;+charset=utf-8 6.4308ms
+2023-02-16 15:51:30.441 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7203/swagger/index.html - - - 200 - text/html;charset=utf-8 605.9651ms
+2023-02-16 15:51:30.459 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7203/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 38.8719ms
+2023-02-16 15:51:30.540 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7203/swagger/v1/swagger.json - -
+2023-02-16 15:51:30.690 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7203/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 150.1069ms
+2023-02-16 15:51:38.137 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7203/api/v1/OrderControllerV/GetAllOrder - -
+2023-02-16 15:51:38.880 +08:00 [INF] Executing endpoint 'webapi.WebAPI.Controllers.OrderControllerV1.GetAllOrders (webapi)'
+2023-02-16 15:51:38.902 +08:00 [INF] Route matched with {action = "GetAllOrders", controller = "OrderControllerV"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAllOrders() on controller webapi.WebAPI.Controllers.OrderControllerV1 (webapi).
+2023-02-16 15:51:39.352 +08:00 [INF] GetAllOrder executing..
+2023-02-16 15:51:40.189 +08:00 [INF] Connection established..
+2023-02-16 15:51:40.715 +08:00 [INF] Executed DbCommand (6ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [c].[CartItemId], [c].[CartItemName], [c].[CustomerId], [c].[OrderPrimaryId]
+FROM [CartItems] AS [c]
+WHERE [c].[OrderPrimaryId] IN ('a1d598f1-4fd1-474a-51a6-08db035c1ea6', '839734ad-7b83-48c9-81a0-08db03623e75', '52d01513-5d5b-4706-2182-08db04159695', '6b739960-0549-40b0-e421-08db04fe566e', 'a2403805-3bc7-4e6f-e422-08db04fe566e', 'cced369a-4b02-4548-109a-08db08103c55', '6a6422c3-7997-4998-3ab4-08db08a7965b', 'b16e3774-fae9-44c7-2b92-08db08bbb3da', '51f589d8-3a2c-43b9-19b2-08db09a1d382', 'f552bbd9-7f82-4ef0-4afa-08db09b0f5d4', 'b8040055-7102-42e5-f7ed-08db0b2a1207', '03285791-61f8-4953-f7ee-08db0b2a1207', '0765da17-231a-4997-abd8-08db0d6ccdf6', '73ed35fc-bafd-4c4c-abd9-08db0d6ccdf6', 'f6f422e6-81d5-4e40-30fd-08db0e5cb893', '12571598-b20e-4851-5333-08db0e5ef787', '579eb0ab-6ee2-4eb9-bb12-08db0fefc319')
+2023-02-16 15:51:40.794 +08:00 [INF] GetAllOrder success..
+2023-02-16 15:51:40.827 +08:00 [INF] Executing OkObjectResult, writing value of type 'webapi.AppService.Common.QueryOrCommandResult`1[[System.Collections.Generic.IEnumerable`1[[webapi.CQRS.ViewModels.OrderViewModel, webapi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2023-02-16 15:51:40.859 +08:00 [INF] Executed action webapi.WebAPI.Controllers.OrderControllerV1.GetAllOrders (webapi) in 1952.6831ms
+2023-02-16 15:51:40.861 +08:00 [INF] Executed endpoint 'webapi.WebAPI.Controllers.OrderControllerV1.GetAllOrders (webapi)'
+2023-02-16 15:51:40.876 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7203/api/v1/OrderControllerV/GetAllOrder - - - 200 - application/json;+charset=utf-8 2739.2869ms
+2023-02-16 15:51:50.078 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7203/api/v1/CartItemControllerV/Get-All-Pending-Cart-Item - -
+2023-02-16 15:51:50.081 +08:00 [INF] Executing endpoint 'webapi.WebAPI.Controllers.CartItemControllerV1.GetAllCartItems (webapi)'
+2023-02-16 15:51:50.084 +08:00 [INF] Route matched with {action = "GetAllCartItems", controller = "CartItemControllerV"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAllCartItems() on controller webapi.WebAPI.Controllers.CartItemControllerV1 (webapi).
+2023-02-16 15:51:50.109 +08:00 [INF] GetAllCartItem executing..
+2023-02-16 15:51:50.159 +08:00 [ERR] Error in GetAllCartItem
+System.InvalidOperationException: A parameterless default constructor or one matching signature (System.Guid CartItemId, System.String CartItemName, System.Guid CustomerId, System.Guid OrderPrimaryId) is required for webapi.Domain.Models.CartItemModel materialization
+   at Dapper.SqlMapper.GenerateDeserializerFromMap(Type type, IDataReader reader, Int32 startBound, Int32 length, Boolean returnNullIfFirstMissing, ILGenerator il) in /_/Dapper/SqlMapper.cs:line 3297
+   at Dapper.SqlMapper.GetTypeDeserializerImpl(Type type, IDataReader reader, Int32 startBound, Int32 length, Boolean returnNullIfFirstMissing) in /_/Dapper/SqlMapper.cs:line 3131
+   at Dapper.SqlMapper.TypeDeserializerCache.GetReader(IDataReader reader, Int32 startBound, Int32 length, Boolean returnNullIfFirstMissing) in /_/Dapper/SqlMapper.TypeDeserializerCache.cs:line 151
+   at Dapper.SqlMapper.TypeDeserializerCache.GetReader(Type type, IDataReader reader, Int32 startBound, Int32 length, Boolean returnNullIfFirstMissing) in /_/Dapper/SqlMapper.TypeDeserializerCache.cs:line 50
+   at Dapper.SqlMapper.GetDeserializer(Type type, IDataReader reader, Int32 startBound, Int32 length, Boolean returnNullIfFirstMissing) in /_/Dapper/SqlMapper.cs:line 1837
+   at Dapper.SqlMapper.QueryAsync[T](IDbConnection cnn, Type effectiveType, CommandDefinition command) in /_/Dapper/SqlMapper.Async.cs:line 426
+   at webapi.Infrastructure.Database.Repository.CartItemRepository.GetAllCartItems() in C:\Users\tjdbasalo\source\repos\webapi\webapi\Infrastructure\Database\Repository\CartItemRepository.cs:line 92
+2023-02-16 15:51:50.311 +08:00 [INF] Executing BadRequestObjectResult, writing value of type 'webapi.AppService.Common.QueryOrCommandResult`1[[System.Collections.Generic.IEnumerable`1[[webapi.CQRS.ViewModels.CartItemViewModel, webapi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2023-02-16 15:51:50.312 +08:00 [INF] Executed action webapi.WebAPI.Controllers.CartItemControllerV1.GetAllCartItems (webapi) in 227.9832ms
+2023-02-16 15:51:50.312 +08:00 [INF] Executed endpoint 'webapi.WebAPI.Controllers.CartItemControllerV1.GetAllCartItems (webapi)'
+2023-02-16 15:51:50.312 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7203/api/v1/CartItemControllerV/Get-All-Pending-Cart-Item - - - 400 - application/json;+charset=utf-8 233.7552ms
+2023-02-16 16:12:02.304 +08:00 [INF] User profile is available. Using 'C:\Users\tjdbasalo\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2023-02-16 16:12:02.760 +08:00 [INF] Now listening on: https://localhost:7203
+2023-02-16 16:12:02.760 +08:00 [INF] Now listening on: http://localhost:5203
+2023-02-16 16:12:02.763 +08:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-02-16 16:12:02.764 +08:00 [INF] Hosting environment: Development
+2023-02-16 16:12:02.764 +08:00 [INF] Content root path: C:\Users\tjdbasalo\source\repos\webapi\webapi\
+2023-02-16 16:12:03.678 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7203/swagger/index.html - -
+2023-02-16 16:12:04.264 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7203/_framework/aspnetcore-browser-refresh.js - -
+2023-02-16 16:12:04.264 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7203/_vs/browserLink - -
+2023-02-16 16:12:04.272 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7203/_framework/aspnetcore-browser-refresh.js - - - 200 11982 application/javascript;+charset=utf-8 5.1881ms
+2023-02-16 16:12:04.285 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7203/swagger/index.html - - - 200 - text/html;charset=utf-8 617.0164ms
+2023-02-16 16:12:04.300 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7203/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 36.0467ms
+2023-02-16 16:12:04.381 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7203/swagger/v1/swagger.json - -
+2023-02-16 16:12:04.546 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7203/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 164.8423ms
+2023-02-16 16:12:20.123 +08:00 [INF] Request starting HTTP/2 GET https://localhost:7203/api/v1/CartItemControllerV/Get-All-Pending-Cart-Item - -
+2023-02-16 16:12:21.026 +08:00 [INF] Executing endpoint 'webapi.WebAPI.Controllers.CartItemControllerV1.GetAllCartItems (webapi)'
+2023-02-16 16:12:21.046 +08:00 [INF] Route matched with {action = "GetAllCartItems", controller = "CartItemControllerV"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAllCartItems() on controller webapi.WebAPI.Controllers.CartItemControllerV1 (webapi).
+2023-02-16 16:12:22.316 +08:00 [INF] GetAllCartItem executing..
+2023-02-16 16:12:22.336 +08:00 [INF] Success..
+2023-02-16 16:12:22.369 +08:00 [INF] Executing OkObjectResult, writing value of type 'webapi.AppService.Common.QueryOrCommandResult`1[[System.Collections.Generic.IEnumerable`1[[webapi.CQRS.ViewModels.CartItemViewModel, webapi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2023-02-16 16:12:22.393 +08:00 [INF] Executed action webapi.WebAPI.Controllers.CartItemControllerV1.GetAllCartItems (webapi) in 1341.3665ms
+2023-02-16 16:12:22.395 +08:00 [INF] Executed endpoint 'webapi.WebAPI.Controllers.CartItemControllerV1.GetAllCartItems (webapi)'
+2023-02-16 16:12:22.411 +08:00 [INF] Request finished HTTP/2 GET https://localhost:7203/api/v1/CartItemControllerV/Get-All-Pending-Cart-Item - - - 200 - application/json;+charset=utf-8 2288.2090ms

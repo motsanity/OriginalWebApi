@@ -29,14 +29,12 @@ namespace webapi.Infrastructure.Database.Repository
         {
             _logger.LogInformation("AddCartItem executing..");
 
-            var user = _context.Users.FirstOrDefault(r => r.UserId == cartitem.CustomerId);
-            var userOrder = _context.Orders.FirstOrDefault(r => r.UserPrimaryID == cartitem.CustomerId && r.Status == 0);
+            var user = await _context.Users.FirstOrDefaultAsync(r => r.UserId == cartitem.CustomerId);
+            var userOrder = await _context.Orders.FirstOrDefaultAsync(r => r.UserPrimaryID == cartitem.CustomerId && r.Status == 0);
             var entity = _mapper.Map<Entities.CartItem>(cartitem);
             short status = 0;
 
             //_context.CartItems.Add(entity);
-
-
 
             if (userOrder != null && userOrder.Status == 0)
             {

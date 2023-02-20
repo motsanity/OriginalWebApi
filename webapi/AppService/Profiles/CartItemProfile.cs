@@ -12,11 +12,13 @@ namespace webapi.AppService.Profiles
         public CartItemProfile()
         {
             CreateMap<webapi.Domain.Models.CartItemModel, webapi.Infrastructure.Database.Entities.CartItem>();
+            CreateMap<webapi.CQRS.ViewModels.CartItemViewModel, webapi.Infrastructure.Database.Entities.CartItem>();
             CreateMap<AddCartItemDTO, AddCartItemCommand>();
-            CreateMap<AddCartItemCommand, CartItemModel>()
-                .ConstructUsing((s) => new CartItemModel(s.CartItemName, s.CustomerId, s.OrderPrimaryId)); // return constructor 2/14/2023
+            CreateMap<AddCartItemCommand, CartItemModel>();
+                //.ConstructUsing((s) => new CartItemModel(s.CartItemName, s.CustomerId, s.OrderPrimaryId)); // return constructor 2/14/2023
 
             CreateMap<CartItemModel, CartItemViewModel>();
+            
 
             CreateMap<UpdateCartItemDTO, UpdateCartItemCommand>();
 

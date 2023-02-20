@@ -7,6 +7,6 @@ namespace webapi.CQRS.ViewModels
         public string? UserName { get; set; }
 
         //added 02/08/2023
-        public ICollection<Order> Orders { get; set; } = new List<Order>();
+       
     }
 }
